@@ -17,3 +17,5 @@ const useSupabase = () => {
 
     return { session, supabase }
 }
+
+export default useSupabase;
