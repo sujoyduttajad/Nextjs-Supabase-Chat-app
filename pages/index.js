@@ -21,7 +21,9 @@ export default function Home({ session, supabase }) {
       </Head>
 
       <main className={styles.main}>
-        
+        {
+          loggedIn ? <span>Logged In</span> : <span>Log in button here</span>
+        }
       </main>
     </div>
   )
