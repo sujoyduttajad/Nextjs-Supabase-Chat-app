@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import Auth from '../components/Auth';
+import Chat from '../components/Chat';
 
 export default function Home({ session, supabase }) {
 
@@ -23,7 +24,7 @@ export default function Home({ session, supabase }) {
 
       <main className={styles.main}>
         {
-          loggedIn ? <span>Logged In</span> : <Auth supabase={supabase} />
+          loggedIn ? <Chat /> : <Auth supabase={supabase} />
         }
       </main>
     </div>
