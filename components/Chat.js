@@ -1,20 +1,26 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 const Chat = ({ supabase }) => {
-  console.log(supabase);
+  const [messages, setMessages] = useState([]);
+
   useEffect(async () => {
     const getMessages = async () => {
-        let { data: messages, error } = await supabase.from("message").select("*");
-        console.log(messages)
-      };
-    
-    await getMessages()  
+      let { data: messages, error } = await supabase
+        .from("message")
+        .select("*");
+      setMessages(messages);
+    };
+
+    await getMessages();
   }, []);
-  
 
   return (
     <div>
-      <span>YOu 're Logged In</span>
+      {messages.map((message) => (
+        <div key={message.id}>
+            {message.content}
+        </div>
+      ))}
     </div>
   );
 };
