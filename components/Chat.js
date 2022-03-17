@@ -4,7 +4,9 @@ const Chat = ({ supabase }) => {
 
     console.log(supabase)
   return (
-    <div>Chat</div>
+    <div>
+        <span>YOu 're Logged In</span>
+    </div>
   )
 }
 
