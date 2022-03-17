@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Chat = () => {
+const Chat = ({ supabase }) => {
+
+    console.log(supabase)
   return (
     <div>Chat</div>
   )
