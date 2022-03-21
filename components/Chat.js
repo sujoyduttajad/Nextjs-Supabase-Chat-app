@@ -12,6 +12,18 @@ const Chat = ({ supabase }) => {
     };
 
     await getMessages();
+
+    const setupMessagesSubscription = async () => {
+      await supabase
+        .from('meesage')
+        .on('INSERT', payload => {
+          console.log('Change received!!', payload)
+        })
+        .subscribe()
+    }
+    
+    await setupMessagesSubscription();
+
   }, []);
 
   return (
