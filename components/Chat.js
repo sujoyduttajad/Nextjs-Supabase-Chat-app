@@ -17,8 +17,8 @@ const Chat = ({ supabase }) => {
     const setupMessagesSubscription = async () => {
       await supabase
         .from('message')
-        .on('*', payload => {
-          console.log('Change received!!', payload)
+        .on('INSERT', payload => {
+          setMessages(prev => [].concat(prev, payload.new))
         })
         .subscribe()
     }
