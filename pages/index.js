@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Auth from '../components/Auth';
 import Chat from '../components/Chat';
 
-export default function Home({ session, supabase }) {
+export default function Home({ currentUser, session, supabase }) {
 
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -24,7 +24,7 @@ export default function Home({ session, supabase }) {
 
       <main className={styles.main}>
         {
-          loggedIn ?  <Chat supabase={supabase} /> : <Auth supabase={supabase} />
+          loggedIn ?  <Chat currentUser={currentUser} supabase={supabase} /> : <Auth supabase={supabase} />
         }
         
       </main>
