@@ -50,6 +50,12 @@ const Chat = ({ currentUser, supabase, session }) => {
 
   const setUsername = async evt => {
     evt.preventDefault();
+    const username = newUsername.current.value;
+    await supabase
+    .from('user')
+    .insert([
+      { ...currentUser, username }
+    ], { upsert: true }); // 'upsert' is a combination of insert and update
   }
 
   return (
