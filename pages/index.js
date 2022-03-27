@@ -24,7 +24,7 @@ export default function Home({ currentUser, session, supabase }) {
 
       <main className={styles.main}>
         {
-          loggedIn ?  <Chat currentUser={currentUser} supabase={supabase} /> : <Auth supabase={supabase} />
+          loggedIn ?  <Chat session={session} currentUser={currentUser} supabase={supabase} /> : <Auth supabase={supabase} />
         }
         
       </main>
