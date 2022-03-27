@@ -43,7 +43,7 @@ const useSupabase = () => {
     setCurrentUser(foundCurrentUser)
   }, []);
 
-  return { session, supabase };
+  return { currentUser, session, supabase };
 };
 
 export default useSupabase;
