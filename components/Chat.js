@@ -34,7 +34,13 @@ const Chat = ({ currentUser, supabase, session }) => {
     await setupMessagesSubscription();
   }, []);
 
-  // Request User Details for a Given User
+  // Using supabase API look at the users that we already have. It will consists of objects with a bunch of users 
+  const getUsersFromSupabase = async (users, userIds) => {
+    // New userIds that are not inside our users object
+    const usersToGet = Array.from(userIds).filter()
+  }
+
+  // Request User Details for a Given User and get their userName & userId
   useEffect(async () => {
     const getUsers = async () => {
       const userIds = new Set(messages.map(message => message.user_id));
