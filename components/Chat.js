@@ -36,19 +36,19 @@ const Chat = ({ supabase, session }) => {
       ]);
 
       // reset the message to blank space
-      message.current.value = ""
+      messageRef.current.value = ""
   }
   return (
     <div>
       {messages.map((message) => (
-        <div key={message.id} className={styles.footer}>
+        <div key={message.id} className={styles.messageContainer}>
             {message.content}
         </div>
       ))}
 
-      <form onSubmit={handleSendMessage}>
-        <input placeholder="Write your message" required ref={messageRef} />
-        <button type="submit">Send Message</button>
+      <form className={styles.chat} onSubmit={handleSendMessage}>
+        <input className={styles.messageInput} placeholder="Write your message" required ref={messageRef} />
+        <button className={styles.submit} type="submit">Send Message</button>
       </form>
     </div>
   );
