@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/Chat.module.css";
 
 const Chat = ({ currentUser, supabase, session }) => {
+  if(!currentUser) return null;
+  // Loading screen will be here 
+  
   const [messages, setMessages] = useState([]);
   const messageRef = useRef("");
 
@@ -38,15 +41,15 @@ const Chat = ({ currentUser, supabase, session }) => {
   };
   return (
     <>
-      {/* <div className={styles.header}>
+      <div className={styles.header}>
         <div className={styles.headerText}>
           <h1>Supabase Chat</h1>
-          <p>
-            Welcome,{" "}
-            {currentUser.username ? currentUser.username : session.user.email}
-          </p>
         </div>
-        <div className={styles.settings}>
+        <p>
+          Welcome, {currentUser.username ? currentUser.username : session.user.email}
+        </p>
+      </div>
+        {/* <div className={styles.settings}>
           {editingUsername ? (
             <form onSubmit={setUsername}>
               <input
@@ -70,7 +73,7 @@ const Chat = ({ currentUser, supabase, session }) => {
             </>
           )}
         </div>
-      </div> */}
+      </div>  */}
 
       <div className={styles.container}>
         {messages.map((message) => (
