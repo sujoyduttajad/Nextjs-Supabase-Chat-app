@@ -4,7 +4,7 @@ import styles from "../styles/Chat.module.css";
 const Chat = ({ currentUser, supabase, session }) => {
   if(!currentUser) return null;
   // Loading screen will be here 
-  
+
   const [messages, setMessages] = useState([]);
   const messageRef = useRef("");
 
@@ -41,14 +41,14 @@ const Chat = ({ currentUser, supabase, session }) => {
   };
   return (
     <>
-      <div className={styles.header}>
+      <nav className={styles.header}>
         <div className={styles.headerText}>
           <h1>Supabase Chat</h1>
         </div>
         <p>
           Welcome, {currentUser.username ? currentUser.username : session.user.email}
         </p>
-      </div>
+      </nav>
         {/* <div className={styles.settings}>
           {editingUsername ? (
             <form onSubmit={setUsername}>
