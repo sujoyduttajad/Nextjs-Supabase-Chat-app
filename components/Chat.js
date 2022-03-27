@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/Chat.module.css";
 
-const Chat = ({ supabase, session }) => {
+const Chat = ({ currentUser, supabase, session }) => {
   const [messages, setMessages] = useState([]);
   const messageRef = useRef("");
 
