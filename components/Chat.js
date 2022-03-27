@@ -6,7 +6,9 @@ const Chat = ({ currentUser, supabase, session }) => {
   // Loading screen will be here 
 
   const [messages, setMessages] = useState([]);
+  const [editingUsername, setEditingUsername] = useState(false)
   const messageRef = useRef("");
+  const newUsername = useRef("")
 
   useEffect(async () => {
     const getMessages = async () => {
@@ -39,6 +41,17 @@ const Chat = ({ currentUser, supabase, session }) => {
     // reset the message to blank space
     messageRef.current.value = "";
   };
+
+  const signout = event => {
+    event.preventDefault();
+    window.localStorage.clear();
+    window.location.reload();
+  }
+
+  const setUsername = async evt => {
+    evt.preventDefault();
+  }
+
   return (
     <>
       <nav className={styles.header}>
