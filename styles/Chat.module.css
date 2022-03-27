@@ -33,7 +33,7 @@
     margin: 10px 0;
     width: 100%;
     padding: 10px;
-    border-radius: 2px;
+     border-radius: 50px;
    
   }
   
@@ -43,7 +43,7 @@
   
   .chat {
     display: flex;
-    background: #f7f7f7;
+    /* background: #f7f7f7; */
     width: 100%;
     padding: 5px;
     height: 60px;
@@ -52,12 +52,18 @@
   .messageInput {
     flex: 1;
     margin-right: 10px;
-    border: 1px solid #eee;
+    border: 2.5px solid #34b27b;
+    background-color: #2C2C2C;
+    color: #fff;
     border-radius: 2px;
     padding: 0 10px;
     font-family: MyFont;
-    outline: 1px solid #34b27b;
-    border-radius: 9.97531px;
+    font-size: 1em;
+    outline: none;
+    border-radius: 5.97531px;
+  }
+  .messageInput::placeholder {
+    color: #DFDFDF;
   }
   
   .submit {
