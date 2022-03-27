@@ -36,8 +36,11 @@ const Chat = ({ currentUser, supabase, session }) => {
 
   // Using supabase API look at the users that we already have. It will consists of objects with a bunch of users 
   const getUsersFromSupabase = async (users, userIds) => {
-    // New userIds that are not inside our users object
-    const usersToGet = Array.from(userIds).filter()
+    // New userIds(which is a Set) that are not inside our users object
+    // look for an existing instance in the users object(userId) So if we already have this user stored then filter it out of this users to get
+    // What we have here is arrays of ids that we don't currently know anything about in our local component
+    // THat's what I will use to amke a request to Supabse to get those new users for storing in our component.
+    const usersToGet = Array.from(userIds).filter(userId => !users[userId])
   }
 
   // Request User Details for a Given User and get their userName & userId
