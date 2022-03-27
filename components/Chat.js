@@ -79,9 +79,9 @@ const Chat = ({ currentUser, supabase, session }) => {
         
         <div className={styles.settings}>
           {editingUsername ?
-            <form onSubmit={setUsername}>
-              <input type="text" required ref={newUsername} placeholder="New username" />
-              <button type="submit">Set username</button>
+            <form className={styles.usernameForm} onSubmit={setUsername}>
+              <input className={styles.messageInput} type="text" required ref={newUsername} placeholder="New username" />
+              <button className={styles.submit} type="submit">Set username</button>
             </form>
             : (
               <>
