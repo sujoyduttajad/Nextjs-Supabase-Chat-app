@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from '../styles/Home.module.css'
 
 const Chat = ({ supabase }) => {
   const [messages, setMessages] = useState([]);
+  const messageRef = useRef("");
 
   useEffect(async () => {
     const getMessages = async () => {
@@ -35,8 +36,8 @@ const Chat = ({ supabase }) => {
         </div>
       ))}
 
-      <form>
-        <input placeholder="Write your message" />
+      <form onSubmit={handleSendMessage}>
+        <input placeholder="Write your message" required ref={messageRef} />
         <button type="submit">Send Message</button>
       </form>
     </div>
