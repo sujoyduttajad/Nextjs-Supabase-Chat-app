@@ -33,7 +33,10 @@ const Chat = ({ supabase, session }) => {
       .from('message')
       .insert([
         { content, user_id: session.user.id }
-      ])
+      ]);
+
+      // reset the message to blank space
+      message.current.value = ""
   }
   return (
     <div>
