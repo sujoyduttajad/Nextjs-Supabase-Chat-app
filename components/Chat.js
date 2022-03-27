@@ -113,8 +113,8 @@ const Chat = ({ currentUser, supabase, session }) => {
             ref={messageRef}
           />
           <button className={styles.submit} type="submit">
-            <Image className={styles.image} src={logo} alt="send icon" />
-            <h3>Send</h3>
+            <Image width={50} height={23} src={logo} alt="send icon" />
+            <h3 style={{ margin: "0", marginRight: "0.7em" }}>SEND</h3>
           </button>
         </form>
       </div>
