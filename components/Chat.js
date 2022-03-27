@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Chat.module.css'
 
 const Chat = ({ supabase, session }) => {
   const [messages, setMessages] = useState([]);
