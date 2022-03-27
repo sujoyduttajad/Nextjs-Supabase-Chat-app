@@ -8,7 +8,9 @@ const Chat = ({ currentUser, supabase, session }) => {
   // Loading screen will be here 
 
   const [messages, setMessages] = useState([]);
-  const [editingUsername, setEditingUsername] = useState(false)
+  const [editingUsername, setEditingUsername] = useState(false);
+  const [users, setUsers] = useState({});
+
   const messageRef = useRef("");
   const newUsername = useRef("")
 
@@ -31,6 +33,16 @@ const Chat = ({ currentUser, supabase, session }) => {
     };
     await setupMessagesSubscription();
   }, []);
+
+  // Request User Details for a Given User
+  useEffect(async () => {
+    const getUsers = async () => {
+      const userIds = new Set(messages.map(message => message.user_id));
+      const newUsers = await getUsersFromSupabase(users, userIds)
+      setUsers(newUsers);
+
+    }
+  })
 
   const handleSendMessage = async (event) => {
     event.preventDefault();
