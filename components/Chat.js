@@ -34,6 +34,11 @@ const Chat = ({ supabase }) => {
             {message.content}
         </div>
       ))}
+
+      <form>
+        <input placeholder="Write your message" />
+        <button type="submit">Send Message</button>
+      </form>
     </div>
   );
 };
