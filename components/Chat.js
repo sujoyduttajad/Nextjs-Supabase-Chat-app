@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/Chat.module.css";
+import Image from 'next/image'
+import logo from '../fonts/send-logo.svg'
 
 const Chat = ({ currentUser, supabase, session }) => {
   if(!currentUser) return null;
@@ -111,7 +113,8 @@ const Chat = ({ currentUser, supabase, session }) => {
             ref={messageRef}
           />
           <button className={styles.submit} type="submit">
-            Send Message
+            <Image className={styles.image} src={logo} alt="send icon" />
+            <h3>Send</h3>
           </button>
         </form>
       </div>
