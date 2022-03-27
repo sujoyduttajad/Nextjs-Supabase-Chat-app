@@ -52,13 +52,20 @@
     border: 1px solid #eee;
     border-radius: 2px;
     padding: 0 10px;
+    font-family: MyFont;
+    outline: 1px solid #34b27b;
+    border-radius: 9.97531px;
   }
   
   .submit {
-    background: #34b27b;
+    background-color: #34b27b;
+    color: #ededed;
     border: none;
     cursor: pointer;
     padding: 5px 10px;
+    font-family: MyFont;
+    font-size: 1em;
+    border-radius: 9.97531px;
   }
   
   .user {
