@@ -82,6 +82,8 @@
     border: none;
     cursor: pointer;
     padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
     font-family: MyFont;
     font-size: 1em;
     border-radius: 5.97531px;
