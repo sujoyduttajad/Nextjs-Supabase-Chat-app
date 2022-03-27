@@ -49,31 +49,6 @@ const Chat = ({ currentUser, supabase, session }) => {
           Welcome, {currentUser.username ? currentUser.username : session.user.email}
         </p>
       </nav>
-        {/* <div className={styles.settings}>
-          {editingUsername ? (
-            <form onSubmit={setUsername}>
-              <input
-                type="text"
-                required
-                ref={newUsername}
-                placeholder="New username"
-              />
-              <button type="submit">Set username</button>
-            </form>
-          ) : (
-            <>
-              <div>
-                <button onClick={() => setEditingUsername(true)}>
-                  Update username
-                </button>
-              </div>
-              <div>
-                <button onClick={signout}>Log out</button>
-              </div>
-            </>
-          )}
-        </div>
-      </div>  */}
 
       <div className={styles.container}>
         {messages.map((message) => (
