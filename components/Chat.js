@@ -44,10 +44,28 @@ const Chat = ({ currentUser, supabase, session }) => {
       <nav className={styles.header}>
         <div className={styles.headerText}>
           <h1>Supabase Chat</h1>
+          <p>
+            Welcome, {currentUser.username ? currentUser.username : session.user.email}
+          </p>
         </div>
-        <p>
-          Welcome, {currentUser.username ? currentUser.username : session.user.email}
-        </p>
+        
+        <div className={styles.settings}>
+          {editingUsername ?
+            <form onSubmit={setUsername}>
+              <input type="text" required ref={newUsername} placeholder="New username" />
+              <button type="submit">Set username</button>
+            </form>
+            : (
+              <>
+                <div>
+                  <button onClick={() => setEditingUsername(true)}>Update username</button>
+                </div>
+                <div>
+                  <button onClick={signout}>Log out</button>
+                </div>
+              </>
+            )}
+        </div>
       </nav>
 
       <div className={styles.container}>
