@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from '../styles/Home.module.css'
 
-const Chat = ({ supabase }) => {
+const Chat = ({ supabase, session }) => {
   const [messages, setMessages] = useState([]);
   const messageRef = useRef("");
 
@@ -12,7 +12,6 @@ const Chat = ({ supabase }) => {
         .select("*");
       setMessages(messages);
     };
-
     await getMessages();
 
     const setupMessagesSubscription = async () => {
@@ -23,11 +22,19 @@ const Chat = ({ supabase }) => {
         })
         .subscribe()
     }
-    
     await setupMessagesSubscription();
-
   }, []);
+  
+  const handleSendMessage = async (event) => {
+      event.preventDefault();
 
+      const content = messageRef.current.value
+      await supabase
+      .from('message')
+      .insert([
+        { content, user_id: session.user.id }
+      ])
+  }
   return (
     <div>
       {messages.map((message) => (
