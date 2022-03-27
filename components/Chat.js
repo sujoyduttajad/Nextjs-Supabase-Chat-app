@@ -40,9 +40,9 @@ const Chat = ({ currentUser, supabase, session }) => {
       const userIds = new Set(messages.map(message => message.user_id));
       const newUsers = await getUsersFromSupabase(users, userIds)
       setUsers(newUsers);
-
     }
-  })
+    await getUsers();
+  }, [messages])
 
   const handleSendMessage = async (event) => {
     event.preventDefault();
