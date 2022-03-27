@@ -14,6 +14,7 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: MyFont;
 }
 
 @font-face {
