@@ -22,7 +22,7 @@
     justify-content: center;
     padding: 1rem;
     width: 50vw;
-    margin: 120px 0 60px 0;
+    margin: auto;
   }
   
   .messageContainer {
@@ -39,8 +39,6 @@
   }
   
   .chat {
-    position: fixed;
-    bottom: 0;
     display: flex;
     background: #f7f7f7;
     width: 100%;
