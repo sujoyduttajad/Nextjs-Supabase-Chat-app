@@ -50,12 +50,21 @@ const Chat = ({ currentUser, supabase, session }) => {
 
   const setUsername = async evt => {
     evt.preventDefault();
-    const username = newUsername.current.value;
-    await supabase
-    .from('user')
-    .insert([
-      { ...currentUser, username }
-    ], { upsert: true }); // 'upsert' is a combination of insert and update
+
+    try {
+      const username = newUsername.current.value;
+      await supabase
+      .from('user')
+      .insert([
+        { ...currentUser, username }
+      ], { upsert: true }); // 'upsert' is a combination of insert and update
+  
+      newUsername.current.value = ""
+      setEditingUsername(false)
+    } catch (err) {
+      console.log("Something went wrong");
+    }
+    
   }
 
   return (
@@ -76,11 +85,11 @@ const Chat = ({ currentUser, supabase, session }) => {
             </form>
             : (
               <>
-                <div>
-                  <button onClick={() => setEditingUsername(true)}>Update username</button>
+                <div className={styles.buttonContainer}>
+                  <button className={styles.submit} onClick={() => setEditingUsername(true)}>Update username</button>
                 </div>
-                <div>
-                  <button onClick={signout}>Log out</button>
+                <div className={styles.buttonContainer}>
+                  <button className={styles.submit} onClick={signout}>Log out</button>
                 </div>
               </>
             )}
