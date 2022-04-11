@@ -36,14 +36,27 @@ const Chat = ({ currentUser, supabase, session }) => {
 
   // Using supabase API look at the users that we already have. It will consists of objects with a bunch of users 
   const getUsersFromSupabase = async (users, userIds) => {
-    // New userIds(which is a Set) that are not inside our users object
-    // look for an existing instance in the users object(userId) So if we already have this user stored then filter it out of this users to get
-    // What we have here is arrays of ids that we don't currently know anything about in our local component
-    // THat's what I will use to amke a request to Supabse to get those new users for storing in our component.
     const usersToGet = Array.from(userIds).filter(userId => !users[userId])
+    
+    /* ------ Case 1 ------- */
+    if (Object.keys(users).length && usersToGet.length === 0) {
+      return users;
+    }
+    /* ------ Case 2 ------- */
+    const { data } = await supabase
+      .from('user')
+      .select('id,username')
+      .in('id', userToGet);
+
+    const newUsers = {};
+    data.forEach(user => newUsers[user.id] = user)
+
+    return Object.assign({}, users, newUsers)
   }
 
-  // Request User Details for a Given User and get their userName & userId
+   
+
+  // Request User Details for a Given User and get their userName & userId. 
   useEffect(async () => {
     const getUsers = async () => {
       const userIds = new Set(messages.map(message => message.user_id));
