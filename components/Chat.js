@@ -143,7 +143,7 @@ const Chat = ({ currentUser, supabase, session }) => {
       <nav className={styles.header}>
         <div className={styles.headerText}>
           <div className={styles.brandName}>
-            <Image width={100} height={100} src={Brand} alt="Brand icon" />
+            <Image className={styles.imageCon} src={Brand} alt="Brand icon" />
             <h1 className={styles.h1}>Enigma</h1>
           </div>
           
