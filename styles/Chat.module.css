@@ -79,6 +79,8 @@
   }
   .buttonContainer {
       margin: 1em;
+      margin-top: 0;
+      margin-bottom: 0.2em;
   }
   .submit {
     background-color: #30A572;
