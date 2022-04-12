@@ -82,6 +82,9 @@
       margin-top: 0;
       margin-bottom: 0.2em;
   }
+  .buttonContainer p {
+    margin: 0;
+  }
   .submit {
     background-color: #30A572;
     color: #ededed;
