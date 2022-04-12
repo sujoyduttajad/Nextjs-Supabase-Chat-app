@@ -130,7 +130,7 @@ const Chat = ({ currentUser, supabase, session }) => {
                 <div className={styles.buttonContainer}>
                   <button 
                     style={{ 
-                      fontSize: '0.9em', 
+                      fontSize: '0.95em', 
                       fontWeight: 200,
                       letterSpacing: '1.2px',
                       marginBottom: '0.5em'
@@ -144,7 +144,7 @@ const Chat = ({ currentUser, supabase, session }) => {
                 <div className={styles.buttonContainer}>
                   <button 
                     style={{ 
-                      fontSize: '0.9em',
+                      fontSize: '0.95em',
                       fontWeight: 200,
                       letterSpacing: '1.2px',
                     }}
