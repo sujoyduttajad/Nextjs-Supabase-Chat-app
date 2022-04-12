@@ -141,7 +141,7 @@ const Chat = ({ currentUser, supabase, session }) => {
     <>
       <nav className={styles.header}>
         <div className={styles.headerText}>
-          <h1 className={styles.h1}>Supabase Chat</h1>
+          <h1 className={styles.h1}>Enigma</h1>
           <p className={styles.p}>
             Welcome, {currentUser.username ? currentUser.username : session.user.email}
           </p>
