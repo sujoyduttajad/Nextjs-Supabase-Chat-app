@@ -73,7 +73,7 @@
   .messageInput {
     flex: 1;
     margin-right: 10px;
-    border: 2.5px solid #30A572;
+    border: 2.5px solid #34b27b;
     background-color: #2C2C2C;
     color: #fff;
     border-radius: 2px;
@@ -96,7 +96,7 @@
     margin: 0;
   }
   .submit {
-    background-color: #30A572;
+    background-color: #34b27b;
     color: #ededed;
     border: none;
     cursor: pointer;
@@ -111,5 +111,5 @@
   
   .user {
     font-style: italic;
-    color: #30A572;
+    color: #34b27b;
   }
