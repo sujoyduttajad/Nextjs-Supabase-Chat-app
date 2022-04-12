@@ -86,7 +86,6 @@ const Chat = ({ currentUser, supabase, session }) => {
 
   const setUsername = async evt => {
     evt.preventDefault();
-
     try {
       const username = newUsername.current.value;
       await supabase
@@ -100,7 +99,14 @@ const Chat = ({ currentUser, supabase, session }) => {
     } catch (err) {
       console.log("Something went wrong");
     }
-    
+  }
+
+  const username = user_id => {
+    const user = users[user_id];
+    // Check for user exists or not. A loading component could be created here
+    if (!user) 
+      return ""
+    return user.username ? user.username : user.id
   }
 
   return (
