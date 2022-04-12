@@ -128,10 +128,31 @@ const Chat = ({ currentUser, supabase, session }) => {
             : (
               <>
                 <div className={styles.buttonContainer}>
-                  <button className={styles.submit} onClick={() => setEditingUsername(true)}>Update username</button>
+                  <button 
+                    style={{ 
+                      fontSize: '0.9em', 
+                      fontWeight: 200,
+                      letterSpacing: '1.2px',
+                      marginBottom: '0.5em'
+                    }}
+                    className={styles.submit} 
+                    onClick={() => setEditingUsername(true)}
+                  >
+                    Update Username
+                  </button>
                 </div>
                 <div className={styles.buttonContainer}>
-                  <button className={styles.submit} onClick={signout}>Log out</button>
+                  <button 
+                    style={{ 
+                      fontSize: '0.9em',
+                      fontWeight: 200,
+                      letterSpacing: '1.2px',
+                    }}
+                    className={styles.submit} 
+                    onClick={signout}
+                  >
+                    Log out
+                  </button>
                 </div>
               </>
             )}
