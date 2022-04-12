@@ -22,7 +22,7 @@ const Chat = ({ currentUser, supabase, session }) => {
       setMessages(messages);
     };
     await getMessages();
-
+    // Subscription to changes on ADD/INSERT
     const setupMessagesSubscription = async () => {
       await supabase
         .from("message")
@@ -32,6 +32,26 @@ const Chat = ({ currentUser, supabase, session }) => {
         .subscribe();
     };
     await setupMessagesSubscription();
+    
+    // Subscription to changes on UPDATE
+    // So we'll request Supabase for a subscription on UPDATE from the user table, the subscription .on() function
+    // will take a payload with a callback func. First thing I will update the users object by using setUsers and check 
+    // for what this payload coming in and update the users object accordingly. 'new' here is going to be an instance of a user.
+    //  So I'm going to look for the user inside of my users table and if I found the user I'm gonna update it or else just return the user
+    const setupUsersSubscription = async () => {
+      await supabase
+        .from('user')
+        .on('UPDATE', payload => {
+          setUsers(users => {
+            const user = users[payload.new.id];
+            if(user) {
+              // update user
+            } else {
+              return users;
+            }
+          })
+        })
+    }
   }, []);
 
   // Using supabase API look at the users that we already have. It will consists of objects with a bunch of users 
