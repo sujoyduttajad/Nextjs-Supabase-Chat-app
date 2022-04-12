@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/Chat.module.css";
 import Image from 'next/image'
 import logo from '../fonts/send-logo.svg'
+import Brand from '../fonts/Brand.svg'
 
 const Chat = ({ currentUser, supabase, session }) => {
   if(!currentUser) return null;
@@ -141,7 +142,11 @@ const Chat = ({ currentUser, supabase, session }) => {
     <>
       <nav className={styles.header}>
         <div className={styles.headerText}>
-          <h1 className={styles.h1}>Enigma</h1>
+          <div className={styles.brandName}>
+            <img src={Brand} />
+            <h1 className={styles.h1}>Enigma</h1>
+          </div>
+          
           <p className={styles.p}>
             Welcome, {currentUser.username ? currentUser.username : session.user.email}
           </p>
