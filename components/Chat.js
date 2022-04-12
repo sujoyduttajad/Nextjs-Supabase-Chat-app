@@ -138,7 +138,7 @@ const Chat = ({ currentUser, supabase, session }) => {
                     className={styles.submit} 
                     onClick={() => setEditingUsername(true)}
                   >
-                    Update Username
+                    <p>Update Username</p>
                   </button>
                 </div>
                 <div className={styles.buttonContainer}>
@@ -151,7 +151,7 @@ const Chat = ({ currentUser, supabase, session }) => {
                     className={styles.submit} 
                     onClick={signout}
                   >
-                    Log out
+                    <p>Log out</p>
                   </button>
                 </div>
               </>
