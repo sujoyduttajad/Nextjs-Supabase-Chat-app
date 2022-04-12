@@ -143,8 +143,16 @@ const Chat = ({ currentUser, supabase, session }) => {
       <nav className={styles.header}>
         <div className={styles.headerText}>
           <div className={styles.brandName}>
-            <Image className={styles.imageCon} src={Brand} alt="Brand icon" />
+            <Image style={{ boxShadow: '0 1px 6px 0 #fff'}} className={styles.imageCon} src={Brand} alt="Brand icon" shape-rendering="geometricPrecision" />
+            <span>
+            {/* <svg  viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">
+              <circle style={{ boxShadow: '0 1px 6px 0 #fff'}} cx="100" cy="100" r="100" shape-rendering="geometricPrecision">
+              <text x="0" y="0" fill="white">E</text>
+              </circle>
+            </svg> */}
+            
             <h1 className={styles.h1}>Enigma</h1>
+            </span>
           </div>
           
           <p className={styles.p}>
