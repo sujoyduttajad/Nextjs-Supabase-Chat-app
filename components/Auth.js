@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react'
 import styles from '../styles/Auth.module.css'
+import Brand from '../fonts/Brand.svg'
+import Image from 'next/image'
 
 const Auth = ({ supabase }) => {
   const [error, setError] = useState("");
@@ -22,8 +24,11 @@ const Auth = ({ supabase }) => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Supabase Chat</h1>
-
+      {/* <h1 className={styles.title}>Enigma</h1> */}
+      <div className={styles.brandName}>
+            <Image className={styles.imageCon} src={Brand} alt="Brand icon" shape-rendering="geometricPrecision" />
+            <h1 className={styles.title}>Enigma</h1>
+          </div>
       {error ? <p className={styles.error}>{error}</p> : null}
 
       {sentEmail ? (
