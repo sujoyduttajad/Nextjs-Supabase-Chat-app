@@ -46,7 +46,7 @@ const Chat = ({ currentUser, supabase, session }) => {
     const { data } = await supabase
       .from('user')
       .select('id,username')
-      .in('id', userToGet);
+      .in('id', usersToGet);
 
     const newUsers = {};
     data.forEach(user => newUsers[user.id] = user)
@@ -135,7 +135,8 @@ const Chat = ({ currentUser, supabase, session }) => {
       <div className={styles.container}>
         {messages.map((message) => (
           <div key={message.id} className={styles.messageContainer}>
-            {message.content}
+            <span className={styles.user}>{username(message.user_id)}</span>
+            <div>{message.content}</div>
           </div>
         ))}
 
