@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import styles from '../styles/Auth.module.css'
-import Brand from '../fonts/Brand.svg'
+import Brand from '../fonts/invert-brand.svg'
 import Image from 'next/image'
 
 const Auth = ({ supabase }) => {
