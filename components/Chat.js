@@ -45,13 +45,21 @@ const Chat = ({ currentUser, supabase, session }) => {
           setUsers(users => {
             const user = users[payload.new.id];
             if(user) {
-              // update user
+              // The way Object.assign() works is by passing in the userId as a single key
+              // So inside the assign() we are clonning the users object and then updating it based on the specific id
+              // With Object.assign() we are saying first add this user's object but then also add in this specific instance 
+              // of payload.new which is going to be our new user
+              return Object.assign({}, users, {
+                [payload.new.id]: payload.new
+              })
             } else {
               return users;
             }
           })
         })
+        .subscribe()
     }
+    await setupUsersSubscription();
   }, []);
 
   // Using supabase API look at the users that we already have. It will consists of objects with a bunch of users 
