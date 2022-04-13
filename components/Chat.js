@@ -211,7 +211,7 @@ const Chat = ({ currentUser, supabase, session }) => {
               <div className={styles.user}>{username(message.user_id)}</div>
               <div className={styles.timeStamp}>
                 {
-                  format(toDate(Date.parse(message.created_at)), 'eee, PP p')
+                  format(toDate(Date.parse(message.created_at)), 'eee, MMM d  p')
                 }
               </div>
             </div>
