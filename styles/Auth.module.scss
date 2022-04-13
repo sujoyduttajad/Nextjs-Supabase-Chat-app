@@ -7,15 +7,24 @@
   $White: #fff;
   $Gainsboro: #DFDFDF;
 
-.container {
+  @mixin flex($direction, $justify, $align) {
     display: flex;
-    flex-direction: column;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+.container {
+    @include flex(column, center, center);
     width: 100%;
     height: 100vh;
-    align-items: center;
-    justify-content: center;
   }
-  
+  .wrapper {
+    @include flex(column, center, center);
+    background-color: rgba(44, 44, 44, 0.3);
+    padding: 2em;
+    border-radius: 16px;
+  }
   h1.title {
     font-size: 3rem;
     margin-bottom: 1.5rem;
@@ -39,19 +48,22 @@
     width: 20rem;
     background-color: $JetBlack;
     color: $White;
+
+    &::placeholder {
+      color: $Gainsboro;
+    }
+    &:focus {
+      outline: 2px solid $PrimaryColor;
+    }
   }
-  .input::placeholder {
-    color: $Gainsboro;
-  }
-  .input:focus {
-    outline: 2px solid $PrimaryColor;
-  }
+
   .hr {
     background-color: #505050;
     border: none;
     height: 0.005em;
     margin: 3em 0;
   }
+
   .submit {
     background: $PrimaryColor;
     padding: 10px;
@@ -62,13 +74,12 @@
     width: 8em;
     outline: none;
     border: none;
-  }
-  
-  .submit:hover {
-    background: $Cultured;
+
+    &:hover {
+      background: $Cultured;
+    }
   }
  
-  
   .github {
     background: $JetBlack;
     color: $White;
@@ -85,7 +96,7 @@
       margin: 0;
     }
     &:hover {
-      background: $JetBlack;
+      background: #000;
     }
   }
   
