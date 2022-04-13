@@ -6,6 +6,7 @@
   $DimGray: #6D6D6D;
   $White: #fff;
   $Gainsboro: #DFDFDF;
+  $HRcolor: #505050;
 
   @mixin flex($direction, $justify, $align) {
     display: flex;
@@ -58,7 +59,7 @@
   }
 
   .hr {
-    background-color: #505050;
+    background-color: $HRcolor;
     border: none;
     height: 0.005em;
     margin: 3em 0;
