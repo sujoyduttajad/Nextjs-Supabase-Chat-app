@@ -15,23 +15,25 @@
   }
  
   .header {
-    height: fit-content;
-    width: 100%;
+    @include flex(column, flex-start, flex-start);
+    width: fit-content;
+    height: 100vh;
     padding: 1rem;
-    display: flex;
-    position: sticky;
+    position: absolute;
     top: 0;
     z-index: 100;
     box-shadow: 0 1px 6px 0 $DimGray;
     background-color: $SecondaryColor;
+    .h1, .p {
+      margin: 0;
+      margin-left: 0.5em;
+    }
+    .p {
+      margin: 1em 0 0 0.5em;
+      flex-wrap: wrap;
+    }
   }
-  .h1, .p {
-    margin: 0;
-    margin-left: 0.5em;
-  }
-  .p {
-    margin: 1em 0 0 0.5em;
-  }
+ 
   .headerText {
     flex: 1;
   }
@@ -39,16 +41,11 @@
       letter-spacing: 1.4px;
   }
   .settings {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    @include flex(column, center, flex-start);
     width: 200px;
   }
   .brandName {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    @include flex(row, flex-start, center);
   }
   .brandName img {
     width: 3em !important;
@@ -62,7 +59,6 @@
   }
   
   .messageContainer {
-    // border: 1px solid $Cultured;
     margin: 20px 0;
     margin-top: 3px;
     width: 100%;
