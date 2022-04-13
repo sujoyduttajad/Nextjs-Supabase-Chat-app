@@ -7,8 +7,14 @@
   $White: #fff;
   $Gainsboro: #DFDFDF;
 
-
-.header {
+  @mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+  }
+ 
+  .header {
     height: fit-content;
     width: 100%;
     padding: 1rem;
@@ -49,10 +55,6 @@
     height: 3em !important;
   }
   .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: 1rem;
     width: 50vw;
     margin: auto;
@@ -60,15 +62,27 @@
   }
   
   .messageContainer {
-    border: 1px solid $Cultured;
-    margin: 10px 0;
+    // border: 1px solid $Cultured;
+    margin: 20px 0;
+    margin-top: 3px;
     width: 100%;
     padding: 10px 25px;
-    border-radius: 50px;
+    border-radius: 0 7px 7px 7px;
+    background-color: $JetBlack;
+    a {
+      text-decoration: underline;
+    }
   }
-  
-  .messageContainer a {
-    text-decoration: underline;
+  .textDetail {
+    position: relative;
+    left: 1;
+    top: 0;
+    margin-left: 0.2em;
+
+    .user {
+      font-style: italic;
+      color: $PrimaryColor;
+    }
   }
   .chat {
     display: flex;
@@ -121,7 +135,4 @@
     border-radius: 5.97531px;
   }
   
-  .user {
-    font-style: italic;
-    color: $PrimaryColor;
-  }
+ 
