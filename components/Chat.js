@@ -3,7 +3,7 @@ import styles from "../styles/Chat.module.scss";
 import Image from "next/image";
 import logo from "../fonts/send-logo.svg";
 import Brand from "../fonts/invert-brand.svg";
-import { format } from 'date-fns'
+import { format, toDate } from 'date-fns'
 
 const Chat = ({ currentUser, supabase, session }) => {
   if (!currentUser) return null;
@@ -131,6 +131,9 @@ const Chat = ({ currentUser, supabase, session }) => {
     return user.username ? user.username : user.id;
   };
   
+  const date = toDate(Date.parse('2022-03-21T13:12:00+00:00'));
+  console.log(date)
+  
 
   return (
     <>
@@ -203,14 +206,18 @@ const Chat = ({ currentUser, supabase, session }) => {
       <div className={styles.container}>
         {messages.map((message) => (
           <>
-          {console.log(new Date())}
-          <div className={styles.textDetail}>
-            <div className={styles.user}>{username(message.user_id)}</div>
-            <div className={styles.timeStamp}>{format(message.created_at, 'eee')}</div>
-          </div>
-          <div key={message.id} className={styles.messageContainer}>
-            <div>{message.content}</div>
-          </div>
+            {console.log(message.created_at)}
+            <div className={styles.textDetail}>
+              <div className={styles.user}>{username(message.user_id)}</div>
+              <div className={styles.timeStamp}>
+                {
+                  format(toDate(Date.parse(message.created_at)), 'MM/dd/yyyy')
+                }
+              </div>
+            </div>
+            <div key={message.id} className={styles.messageContainer}>
+              <div>{message.content}</div>
+            </div>
           </>
         ))}
 
