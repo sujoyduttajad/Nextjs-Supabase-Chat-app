@@ -25,7 +25,11 @@
     background: rgba(255, 0, 0, 0.3);
     padding: 10px 15px;
   }
-  
+
+  .formContainer {
+    padding: 1em;
+    
+  }
   .input {
     padding: 10px;
     margin-right: 10px;
@@ -71,8 +75,12 @@
     font-size: 1em;
     cursor: pointer;
     letter-spacing: 1.2px;
+
+    p {
+      margin: 0;
+    }
+    &:hover {
+      background: $JetBlack;
+    }
   }
   
-  .github:hover {
-    background: $JetBlack;
-  }
