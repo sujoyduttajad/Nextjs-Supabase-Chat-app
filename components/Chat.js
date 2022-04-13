@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from "../styles/Chat.module.css";
+import styles from "../styles/Chat.module.scss";
 import Image from "next/image";
 import logo from "../fonts/send-logo.svg";
 import Brand from "../fonts/invert-brand.svg";
