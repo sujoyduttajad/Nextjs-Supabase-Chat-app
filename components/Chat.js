@@ -205,7 +205,7 @@ const Chat = ({ currentUser, supabase, session }) => {
           {console.log(message)}
           <div className={styles.textDetail}>
             <div className={styles.user}>{username(message.user_id)}</div>
-            <div className={styles.user}>{message.created_at}</div>
+            <div className={styles.timeStamp}>{message.created_at}</div>
           </div>
           <div key={message.id} className={styles.messageContainer}>
             <div>{message.content}</div>
