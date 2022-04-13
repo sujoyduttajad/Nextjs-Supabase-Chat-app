@@ -15,7 +15,7 @@ const Chat = ({ currentUser, supabase, session }) => {
   const messageRef = useRef("");
   const newUsername = useRef("");
 
-  // Retriving all the message details
+  /* ---- Retriving all the message details ---- */
   useEffect(async () => {
     const getMessages = async () => {
       let { data: messages, error } = await supabase
@@ -25,7 +25,7 @@ const Chat = ({ currentUser, supabase, session }) => {
     };
     await getMessages();
 
-    // Subscription to changes on ADD/INSERT
+    /* ---- Subscription to changes on ADD/INSERT ---- */
     const setupMessagesSubscription = async () => {
       await supabase
         .from("message")
@@ -36,7 +36,7 @@ const Chat = ({ currentUser, supabase, session }) => {
     };
     await setupMessagesSubscription();
 
-    // Subscription to changes on UPDATE
+    /* ---- Subscription to changes on UPDATE ---- */
     const setupUsersSubscription = async () => {
       await supabase
         .from("user")
@@ -57,15 +57,16 @@ const Chat = ({ currentUser, supabase, session }) => {
     await setupUsersSubscription();
   }, []);
 
-  // Using supabase API look at the users that we already have. It will consists of objects with a bunch of users
+  /* ---- Using supabase API look at the users that we already have. 
+  It will consists of objects with a bunch of users ---- */
   const getUsersFromSupabase = async (users, userIds) => {
     const usersToGet = Array.from(userIds).filter((userId) => !users[userId]);
 
-    /* ------ Case 1 ------- */
+    // ------ Case 1 ------- //
     if (Object.keys(users).length && usersToGet.length === 0) {
       return users;
     }
-    /* ------ Case 2 ------- */
+    // ------ Case 2 ------- //
     const { data } = await supabase
       .from("user")
       .select("id,username")
@@ -77,7 +78,7 @@ const Chat = ({ currentUser, supabase, session }) => {
     return Object.assign({}, users, newUsers);
   };
 
-  // Request User Details for a Given User and get their userName & userId.
+ /* ---- Request User Details for a Given User and get their userName & userId ---- */
   useEffect(async () => {
     const getUsers = async () => {
       const userIds = new Set(messages.map((message) => message.user_id));
@@ -87,24 +88,25 @@ const Chat = ({ currentUser, supabase, session }) => {
     await getUsers();
   }, [messages]);
 
+  /* ---- Event Handler for message input ---- */
   const handleSendMessage = async (event) => {
     event.preventDefault();
-
     const content = messageRef.current.value;
     await supabase
       .from("message")
       .insert([{ content, user_id: session.user.id }]);
-
     // reset the message to blank space
     messageRef.current.value = "";
   };
 
+  /* ---- Log Out function ---- */
   const signout = (event) => {
     event.preventDefault();
     window.localStorage.clear();
     window.location.reload();
   };
 
+  /* ---- Update and Insert existing username ---- */
   const setUsername = async (evt) => {
     evt.preventDefault();
     try {
@@ -120,17 +122,14 @@ const Chat = ({ currentUser, supabase, session }) => {
     }
   };
 
+  /* ---- Update Username everywhere ---- */
   const username = (user_id) => {
     const user = users[user_id];
     // Check for user exists or not. A loading component could be created here
     if (!user) return "";
     return user.username ? user.username : user.id;
   };
-  // const timestamp = (created_at) => {
-  //   const user = users[created_at];
-  //   if (!user) return "";
-  //   return user.username ? user.created_at : user.id;
-  // };
+  
 
   return (
     <>
@@ -203,9 +202,10 @@ const Chat = ({ currentUser, supabase, session }) => {
       <div className={styles.container}>
         {messages.map((message) => (
           <>
+          {console.log(message)}
           <div className={styles.textDetail}>
             <div className={styles.user}>{username(message.user_id)}</div>
-            {/* <div className={styles.user}>{timestamp(message.created_at)}</div> */}
+            <div className={styles.user}>{message.created_at}</div>
           </div>
           <div key={message.id} className={styles.messageContainer}>
             <div>{message.content}</div>
