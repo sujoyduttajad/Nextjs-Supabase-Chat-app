@@ -1,3 +1,12 @@
+
+  $PrimaryColor: #34b27b;
+  $SecondaryColor: #1c1c1c;
+  $Cultured: #eee;
+  $JetBlack: #2C2C2C;
+  $DimGray: #6D6D6D;
+  $White: #fff;
+  $Gainsboro: #DFDFDF;
+
 .container {
     display: flex;
     flex-direction: column;
@@ -24,18 +33,18 @@
     font-size: 1em;
     border: none;
     width: 20rem;
-    background-color: #2C2C2C;
-    color: #fff;
+    background-color: $JetBlack;
+    color: $White;
   }
   .input::placeholder {
-    color: #DFDFDF;
+    color: $Gainsboro;
   }
   .input:focus {
-    outline: 2px solid #34b27b;
+    outline: 2px solid $PrimaryColor;
   }
   
   .submit {
-    background: #34b27b;
+    background: $PrimaryColor;
     padding: 10px;
     border-radius: 3px;
     font-weight: 600;
@@ -47,15 +56,16 @@
   }
   
   .submit:hover {
-    background: #eee;
+    background: $Cultured;
   }
  
   
   .github {
-    background: #000;
-    color: white;
+    background: $JetBlack;
+    color: $White;
+    width: 100%;
     padding: 10px;
-    border: 1px solid #eee;
+    border: 1px solid $Cultured;
     border-radius: 3px;
     font-weight: 500;
     font-size: 1em;
@@ -64,5 +74,5 @@
   }
   
   .github:hover {
-    background: #333;
+    background: $JetBlack;
   }
