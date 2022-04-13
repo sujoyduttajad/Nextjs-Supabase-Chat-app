@@ -46,6 +46,7 @@ const Auth = ({ supabase }) => {
               Login
             </button>
           </form>
+          <hr className={styles.hr}/>
           <button className={styles.github} onClick={signInWithGithub}>
             <p>Sign in with GitHub </p>
           </button>  
