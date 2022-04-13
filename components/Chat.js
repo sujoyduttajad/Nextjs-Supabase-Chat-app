@@ -145,13 +145,13 @@ const Chat = ({ currentUser, supabase, session }) => {
             />
             <h1 className={styles.h1}>Enigma</h1>
           </div>
-
+          <hr className={styles.hr}/>
           <p className={styles.p}>
             Welcome,{" "}
             {currentUser.username ? currentUser.username : session.user.email}
           </p>
         </div>
-
+        
         <div className={styles.settings}>
           {editingUsername ? (
             <form className={styles.usernameForm} onSubmit={setUsername}>
