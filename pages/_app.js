@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import useSupabase from '../utils/useSupabase'
 
 function MyApp({ Component, pageProps }) {
