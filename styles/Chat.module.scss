@@ -6,6 +6,7 @@
   $DimGray: #6D6D6D;
   $White: #fff;
   $Gainsboro: #DFDFDF;
+  $HRcolor: #505050;
 
   @mixin flex($direction, $justify, $align) {
     display: flex;
@@ -130,5 +131,10 @@
     font-size: 1em;
     border-radius: 5.97531px;
   }
-  
+  .hr {
+    background-color: $HRcolor;
+    border: none;
+    height: 0.005em;
+    margin: 3em 0;
+  }
  
