@@ -15,6 +15,7 @@ const Chat = ({ currentUser, supabase, session }) => {
   const messageRef = useRef("");
   const newUsername = useRef("");
 
+  // Retriving all the message details
   useEffect(async () => {
     const getMessages = async () => {
       let { data: messages, error } = await supabase
@@ -44,8 +45,8 @@ const Chat = ({ currentUser, supabase, session }) => {
             const user = users[payload.new.id];
             if (user) {
               return Object.assign({}, users, {
-                [payload.new.id]: payload.new,
-              });
+                [payload.new.id]: payload.new
+              })
             } else {
               return users;
             }
@@ -125,12 +126,11 @@ const Chat = ({ currentUser, supabase, session }) => {
     if (!user) return "";
     return user.username ? user.username : user.id;
   };
-  const timestamp = (created_at) => {
-    const user = users[created_at];
-    // Check for user exists or not. A loading component could be created here
-    if (!user) return "";
-    return user.username ? user.created_at : user.id;
-  };
+  // const timestamp = (created_at) => {
+  //   const user = users[created_at];
+  //   if (!user) return "";
+  //   return user.username ? user.created_at : user.id;
+  // };
 
   return (
     <>
@@ -205,7 +205,7 @@ const Chat = ({ currentUser, supabase, session }) => {
           <>
           <div className={styles.textDetail}>
             <div className={styles.user}>{username(message.user_id)}</div>
-            <div className={styles.user}>{timestamp(message.created_at)}</div>
+            {/* <div className={styles.user}>{timestamp(message.created_at)}</div> */}
           </div>
           <div key={message.id} className={styles.messageContainer}>
             <div>{message.content}</div>
