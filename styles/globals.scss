@@ -1,0 +1,23 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #1c1c1c;
+  color: #ededed;
+  font-family: MyFont;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: MyFont;
+}
+
+@font-face {
+  font-family: MyFont;
+  src: url("../fonts/AvenirLTStd-Book.otf") format("opentype");
+}
