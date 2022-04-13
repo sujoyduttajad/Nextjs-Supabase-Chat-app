@@ -71,6 +71,7 @@
     }
   }
   .textDetail {
+    @include flex(row, flex-start, flex-start);
     position: relative;
     left: 1;
     top: 0;
