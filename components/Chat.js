@@ -172,7 +172,7 @@ const Chat = ({ currentUser, supabase, session }) => {
                 <button
                   style={{
                     fontSize: "0.95em",
-                    fontWeight: 200,
+                    fontWeight: 600,
                     letterSpacing: "1.2px",
                     marginBottom: "0.5em",
                   }}
@@ -186,7 +186,7 @@ const Chat = ({ currentUser, supabase, session }) => {
                 <button
                   style={{
                     fontSize: "0.95em",
-                    fontWeight: 200,
+                    fontWeight: 600,
                     letterSpacing: "1.2px",
                   }}
                   className={styles.submit}
@@ -218,7 +218,15 @@ const Chat = ({ currentUser, supabase, session }) => {
           />
           <button className={styles.submit} type="submit">
             <Image width={50} height={23} src={logo} alt="send icon" />
-            <h3 style={{ margin: "0", marginRight: "0.7em" }}>SEND</h3>
+            <h3
+              style={{
+                margin: "0",
+                marginRight: "0.7em",
+                fontWeight: 900
+              }}
+            >
+              SEND
+            </h3>
           </button>
         </form>
       </div>
