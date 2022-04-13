@@ -24,7 +24,6 @@ const Auth = ({ supabase }) => {
 
   return (
     <div className={styles.container}>
-      {/* <h1 className={styles.title}>Enigma</h1> */}
       <div className={styles.brandName}>
             <Image className={styles.imageCon} src={Brand} alt="Brand icon" shape-rendering="geometricPrecision" />
             <h1 className={styles.title}>Enigma</h1>
@@ -34,7 +33,7 @@ const Auth = ({ supabase }) => {
       {sentEmail ? (
         <p>We've sent you an email to login! Check your email to continue.</p>
       ) : (
-        <>
+        <div className={styles.formContainer}>
           <form onSubmit={signIn}>
             <input
               className={styles.input}
@@ -43,18 +42,14 @@ const Auth = ({ supabase }) => {
               ref={emailRef}
               required
             />
-
             <button className={styles.submit} type="submit">
               Login
             </button>
           </form>
-
-          <p>
-            <button className={styles.github} onClick={signInWithGithub}>
-              Sign in with GitHub
-            </button>
-          </p>
-        </>
+          <button className={styles.github} onClick={signInWithGithub}>
+            <p>Sign in with GitHub </p>
+          </button>  
+        </div>
       )}
     </div>
   );
