@@ -23,6 +23,7 @@ const Chat = ({ currentUser, supabase, session }) => {
       setMessages(messages);
     };
     await getMessages();
+
     // Subscription to changes on ADD/INSERT
     const setupMessagesSubscription = async () => {
       await supabase
@@ -35,10 +36,6 @@ const Chat = ({ currentUser, supabase, session }) => {
     await setupMessagesSubscription();
     
     // Subscription to changes on UPDATE
-    // So we'll request Supabase for a subscription on UPDATE from the user table, the subscription .on() function
-    // will take a payload with a callback func. First thing I will update the users object by using setUsers and check 
-    // for what this payload coming in and update the users object accordingly. 'new' here is going to be an instance of a user.
-    //  So I'm going to look for the user inside of my users table and if I found the user I'm gonna update it or else just return the user
     const setupUsersSubscription = async () => {
       await supabase
         .from('user')
@@ -46,10 +43,6 @@ const Chat = ({ currentUser, supabase, session }) => {
           setUsers(users => {
             const user = users[payload.new.id];
             if(user) {
-              // The way Object.assign() works is by passing in the userId as a single key
-              // So inside the assign() we are clonning the users object and then updating it based on the specific id
-              // With Object.assign() we are saying first add this user's object but then also add in this specific instance 
-              // of payload.new which is going to be our new user
               return Object.assign({}, users, {
                 [payload.new.id]: payload.new
               })
@@ -130,12 +123,19 @@ const Chat = ({ currentUser, supabase, session }) => {
     }
   }
 
-  const username = user_id => {
+  const username = (user_id) => {
     const user = users[user_id];
     // Check for user exists or not. A loading component could be created here
     if (!user) 
       return ""
     return user.username ? user.username : user.id
+  }
+  const timestamp = (created_at) => {
+    const user = users[created_at];
+    // Check for user exists or not. A loading component could be created here
+    if (!user) 
+      return ""
+    return user.username ? user.created_at : user.id
   }
 
   return (
@@ -196,6 +196,7 @@ const Chat = ({ currentUser, supabase, session }) => {
         {messages.map((message) => (
           <div key={message.id} className={styles.messageContainer}>
             <span className={styles.user}>{username(message.user_id)}</span>
+            <span className={styles.user}>{timestamp(message.created_at)}</span>
             <div>{message.content}</div>
           </div>
         ))}
