@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import styles from '../styles/Auth.module.css'
+import styles from '../styles/Auth.module.scss'
 import Brand from '../fonts/invert-brand.svg'
 import Image from 'next/image'
 
