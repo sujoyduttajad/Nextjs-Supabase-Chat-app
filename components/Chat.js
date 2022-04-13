@@ -204,7 +204,17 @@ const Chat = ({ currentUser, supabase, session }) => {
       </nav>
 
       <div className={styles.container}>
-        {messages.map((message) => (
+        {messages.sort(function(a,b) {
+          var timeA = a.created_at;
+          var timeB = b.created_at;
+          if(timeA < timeB) {
+            return -1;
+          }
+          if(timeA > timeB) {
+            return 1;
+          }
+          return 0;
+        }).map((message) => (
           <>
             {console.log(message.created_at)}
             <div className={styles.textDetail}>
