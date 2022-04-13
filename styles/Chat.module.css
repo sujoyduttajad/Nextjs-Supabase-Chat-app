@@ -1,3 +1,11 @@
+
+:root {
+  --primary-color: #34b27b;
+  --secondary-color: #1c1c1c;
+}
+
+
+
 .header {
     height: fit-content;
     width: 100%;
@@ -7,7 +15,7 @@
     top: 0;
     z-index: 100;
     box-shadow: 0 1px 6px 0 #6D6D6D;
-    background-color: #1c1c1c;
+    background-color: var(--secondary-color);
   }
   .h1, .p {
     margin: 0;
@@ -37,8 +45,6 @@
   .brandName img {
     width: 3em !important;
     height: 3em !important;
-    /* -webkit-filter: drop-shadow( 0px 0px 3px rgba(255,255,255,1));
-    filter: drop-shadow(0px 0px 3px rgba(255,255,255,1)) ; */
   }
   .container {
     display: flex;
@@ -77,7 +83,7 @@
   .messageInput {
     flex: 1;
     margin-right: 10px;
-    border: 2.5px solid #34b27b;
+    border: 2.5px solid var(--primary-color);
     background-color: #2C2C2C;
     color: #fff;
     border-radius: 2px;
@@ -100,8 +106,8 @@
     margin: 0;
   }
   .submit {
-    background-color: #34b27b;
-    color: #1c1c1c;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     border: none;
     cursor: pointer;
     padding: 5px 10px;
@@ -115,5 +121,5 @@
   
   .user {
     font-style: italic;
-    color: #34b27b;
+    color: var(--primary-color);
   }
