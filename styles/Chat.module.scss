@@ -1,6 +1,12 @@
 
   $PrimaryColor: #34b27b;
   $SecondaryColor: #1c1c1c;
+  $Cultured: #eee;
+  $JetBlack: #2C2C2C;
+  $DimGray: #6D6D6D;
+  $White: #fff;
+  $Gainsboro: #DFDFDF;
+
 
 .header {
     height: fit-content;
@@ -10,7 +16,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 1px 6px 0 #6D6D6D;
+    box-shadow: 0 1px 6px 0 $DimGray;
     background-color: $SecondaryColor;
   }
   .h1, .p {
@@ -54,7 +60,7 @@
   }
   
   .messageContainer {
-    border: 1px solid #eee;
+    border: 1px solid $Cultured;
     margin: 10px 0;
     width: 100%;
     padding: 10px 25px;
@@ -80,8 +86,8 @@
     flex: 1;
     margin-right: 10px;
     border: 2.5px solid $PrimaryColor;
-    background-color: #2C2C2C;
-    color: #fff;
+    background-color: $JetBlack;
+    color: $White;
     border-radius: 2px;
     padding: 0 10px;
     font-family: MyFont;
@@ -91,7 +97,7 @@
     border-radius: 5.97531px;
   }
   .messageInput::placeholder {
-    color: #DFDFDF;
+    color: $Gainsboro;
   }
   .buttonContainer {
       margin: 1em;
