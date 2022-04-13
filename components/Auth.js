@@ -24,6 +24,7 @@ const Auth = ({ supabase }) => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.wrapper}>
       <div className={styles.brandName}>
             <Image className={styles.imageCon} src={Brand} alt="Brand icon" shape-rendering="geometricPrecision" />
             <h1 className={styles.title}>Enigma</h1>
@@ -52,6 +53,7 @@ const Auth = ({ supabase }) => {
           </button>  
         </div>
       )}
+      </div>
     </div>
   );
 };
