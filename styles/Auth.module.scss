@@ -46,7 +46,12 @@
   .input:focus {
     outline: 2px solid $PrimaryColor;
   }
-  
+  .hr {
+    background-color: #505050;
+    border: none;
+    height: 0.005em;
+    margin: 3em 0;
+  }
   .submit {
     background: $PrimaryColor;
     padding: 10px;
