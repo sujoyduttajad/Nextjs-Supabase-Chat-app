@@ -202,11 +202,15 @@ const Chat = ({ currentUser, supabase, session }) => {
 
       <div className={styles.container}>
         {messages.map((message) => (
+          <>
+          <div className={styles.textDetail}>
+            <div className={styles.user}>{username(message.user_id)}</div>
+            <div className={styles.user}>{timestamp(message.created_at)}</div>
+          </div>
           <div key={message.id} className={styles.messageContainer}>
-            <span className={styles.user}>{username(message.user_id)}</span>
-            <span className={styles.user}>{timestamp(message.created_at)}</span>
             <div>{message.content}</div>
           </div>
+          </>
         ))}
 
         <form className={styles.chat} onSubmit={handleSendMessage}>
