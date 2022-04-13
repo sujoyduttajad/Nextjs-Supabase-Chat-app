@@ -129,7 +129,13 @@
     align-items: center;
     font-family: MyFont;
     font-size: 1em;
-    border-radius: 5.97531px;
+    border-radius: 0.2357em;
+    outline: none;
+    &:hover {
+      background-color: $SecondaryColor;
+      color: $PrimaryColor;
+      outline: 2.5px solid $PrimaryColor;
+    }
   }
   .hr {
     background-color: $HRcolor;
