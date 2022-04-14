@@ -30,7 +30,7 @@
       margin-left: 0.5em;
     }
     .p {
-      margin: 1em 0 0 0.5em;
+      margin: 0.5emem 0 0 0.5em;
       flex-wrap: wrap;
     }
   }
@@ -148,5 +148,10 @@
     width: 12em;
     height: 0.005em;
     margin: 2em 0 1em 0;
+  }
+  .welcome{
+    padding: 1em;
+    background-color: $SecondaryColor;
+    border-radius: 0.5357em;
   }
  
