@@ -145,7 +145,7 @@
   .hr {
     background-color: $HRcolor;
     border: none;
-    width: 12em;
+    width: 100%;
     height: 0.005em;
     margin: 2em 0 1em 0;
   }
@@ -154,10 +154,15 @@
     padding: 1em 0.5em;
     background-color: $SecondaryColor;
     border-radius: 0.5357em;
+    span {
+      font-weight: 600;
+      color: $PrimaryColor;
+    }
   }
   .cavatar {
-    background-color: #505050;
+    background-color: $HRcolor;
     border-radius: 50%;
     padding: 0.4em 0.8em;
+    width: 1em;
   }
  
