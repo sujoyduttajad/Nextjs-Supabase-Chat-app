@@ -150,6 +150,7 @@
     margin: 2em 0 1em 0;
   }
   .welcome{
+    @include flex(row, flex-start, flex-start);
     padding: 1em;
     background-color: $SecondaryColor;
     border-radius: 0.5357em;
