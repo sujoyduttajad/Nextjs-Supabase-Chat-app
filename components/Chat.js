@@ -3,6 +3,7 @@ import styles from "../styles/Chat.module.scss";
 import Image from "next/image";
 import logo from "../fonts/send-logo.svg";
 import { format, toDate } from 'date-fns'
+import Sidebar from "./Sidebar";
 
 const Chat = ({ currentUser, supabase, session }) => {
   if (!currentUser) return null;
@@ -136,8 +137,15 @@ const Chat = ({ currentUser, supabase, session }) => {
 
   return (
     <>
-      
-
+      <Sidebar 
+        currentUser={currentUser}
+        newUsername={newUsername}
+        editingUsername={editingUsername}       
+        signout={signout}
+        setUsername={setUsername}
+        setEditingUsername={setEditingUsername}
+        
+      />
       <div className={styles.container}>
         {messages.sort(function(a,b) {
           var timeA = a.created_at;
