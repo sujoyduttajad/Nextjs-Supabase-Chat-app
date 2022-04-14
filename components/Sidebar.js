@@ -1,8 +1,16 @@
 import React from 'react'
 import Brand from "../fonts/invert-brand.svg";
 import styles from "../styles/Chat.module.scss";
+import Image from "next/image";
 
-const Sidebar = () => {
+const Sidebar = ({
+    currentUser, 
+    editingUsername, 
+    newUsername,
+    setUsername,
+    setEditingUsername,
+    signout
+}) => {
   return (
     <nav className={styles.header}>
         <div className={styles.headerText}>
