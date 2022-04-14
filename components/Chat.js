@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/Chat.module.scss";
 import Image from "next/image";
 import logo from "../fonts/send-logo.svg";
-import { format, toDate } from 'date-fns'
+import { format, toDate } from "date-fns";
 import Sidebar from "./Sidebar";
 
 const Chat = ({ currentUser, supabase, session }) => {
@@ -46,8 +46,8 @@ const Chat = ({ currentUser, supabase, session }) => {
             const user = users[payload.new.id];
             if (user) {
               return Object.assign({}, users, {
-                [payload.new.id]: payload.new
-              })
+                [payload.new.id]: payload.new,
+              });
             } else {
               return users;
             }
@@ -79,7 +79,7 @@ const Chat = ({ currentUser, supabase, session }) => {
     return Object.assign({}, users, newUsers);
   };
 
- /* ---- Request User Details for a Given User and get their userName & userId ---- */
+  /* ---- Request User Details for a Given User and get their userName & userId ---- */
   useEffect(async () => {
     const getUsers = async () => {
       const userIds = new Set(messages.map((message) => message.user_id));
@@ -130,49 +130,50 @@ const Chat = ({ currentUser, supabase, session }) => {
     if (!user) return "";
     return user.username ? user.username : user.id;
   };
-  
-  const date = toDate(Date.parse('2022-03-21T13:12:00+00:00'));
-  console.log(date)
-  
+
+  const date = toDate(Date.parse("2022-03-21T13:12:00+00:00"));
+  console.log(date);
 
   return (
     <>
-      <Sidebar 
+      <Sidebar
         currentUser={currentUser}
         newUsername={newUsername}
-        editingUsername={editingUsername}       
+        editingUsername={editingUsername}
         signout={signout}
         setUsername={setUsername}
         setEditingUsername={setEditingUsername}
-        
       />
       <div className={styles.container}>
-        {messages.sort(function(a,b) {
-          var timeA = a.created_at;
-          var timeB = b.created_at;
-          if(timeA < timeB) {
-            return -1;
-          }
-          if(timeA > timeB) {
-            return 1;
-          }
-          return 0;
-        }).map((message) => (
-          <>
-            {console.log(message.created_at)}
-            <div className={styles.textDetail}>
-              <div className={styles.user}>{username(message.user_id)}</div>
-              <div className={styles.timeStamp}>
-                {
-                  format(toDate(Date.parse(message.created_at)), 'eee, MMM d  p')
-                }
+        {messages
+          .sort(function (a, b) {
+            var timeA = a.created_at;
+            var timeB = b.created_at;
+            if (timeA < timeB) {
+              return -1;
+            }
+            if (timeA > timeB) {
+              return 1;
+            }
+            return 0;
+          })
+          .map((message) => (
+            <>
+              {console.log(message.created_at)}
+              <div className={styles.textDetail}>
+                <div className={styles.user}>{username(message.user_id)}</div>
+                <div className={styles.timeStamp}>
+                  {format(
+                    toDate(Date.parse(message.created_at)),
+                    "eee, MMM d  p"
+                  )}
+                </div>
               </div>
-            </div>
-            <div key={message.id} className={styles.messageContainer}>
-              <div>{message.content}</div>
-            </div>
-          </>
-        ))}
+              <div key={message.id} className={styles.messageContainer}>
+                <div>{message.content}</div>
+              </div>
+            </>
+          ))}
 
         <form className={styles.chat} onSubmit={handleSendMessage}>
           <input
@@ -187,7 +188,7 @@ const Chat = ({ currentUser, supabase, session }) => {
               style={{
                 margin: "0",
                 marginRight: "0.7em",
-                fontWeight: 900
+                fontWeight: 900,
               }}
             >
               SEND
