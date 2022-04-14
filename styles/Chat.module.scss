@@ -150,9 +150,14 @@
     margin: 2em 0 1em 0;
   }
   .welcome{
-    @include flex(row, flex-start, flex-start);
-    padding: 1em;
+    @include flex(row, flex-start, center);
+    padding: 1em 0.5em;
     background-color: $SecondaryColor;
     border-radius: 0.5357em;
+  }
+  .cavatar {
+    background-color: #505050;
+    border-radius: 50%;
+    padding: 0.4em 0.8em;
   }
  
