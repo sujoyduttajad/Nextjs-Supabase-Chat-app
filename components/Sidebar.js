@@ -2,6 +2,7 @@ import React from "react";
 import Brand from "../fonts/invert-brand.svg";
 import styles from "../styles/Chat.module.scss";
 import Image from "next/image";
+import { CAvatar } from '@coreui/react'
 
 const Sidebar = ({
   currentUser,
@@ -25,6 +26,9 @@ const Sidebar = ({
         </div>
         <hr className={styles.hr} />
         <div className={styles.welcome}>
+            <CAvatar color="secondary" status="success">
+            {currentUser.username ? currentUser.username.slice(0,1) : session.user.email.slice(0,1)}
+            </CAvatar>  
           <p className={styles.p}>
             Welcome,{" "}
             {currentUser.username ? currentUser.username : session.user.email}
