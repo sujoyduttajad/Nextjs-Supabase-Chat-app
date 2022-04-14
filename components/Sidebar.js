@@ -26,8 +26,8 @@ const Sidebar = ({
         </div>
         <hr className={styles.hr} />
         <div className={styles.welcome}>
-            <CAvatar color="secondary" status="success">
-            {currentUser.username ? currentUser.username.slice(0,1) : session.user.email.slice(0,1)}
+            <CAvatar className={styles.cavatar} status="success">
+                {currentUser.username ? currentUser.username.slice(0,1) : session.user.email.slice(0,1)}
             </CAvatar>  
           <p className={styles.p}>
             Welcome,{" "}
