@@ -26,12 +26,17 @@ const Sidebar = ({
         </div>
         <hr className={styles.hr} />
         <div className={styles.welcome}>
-            <CAvatar className={styles.cavatar} status="success">
+            <CAvatar
+            shape="rounded-10"
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" 
+                className={styles.cavatar} 
+                status="success"
+            >
                 {currentUser.username ? currentUser.username.slice(0,1) : session.user.email.slice(0,1)}
             </CAvatar>  
           <p className={styles.p}>
             Welcome,{" "}
-            {currentUser.username ? currentUser.username : session.user.email}
+            <span>{currentUser.username ? currentUser.username : session.user.email}</span>
           </p>
         </div>
       </div>
