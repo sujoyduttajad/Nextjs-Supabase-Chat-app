@@ -24,7 +24,7 @@ const Sidebar = ({
           <h1 className={styles.h1}>Enigma</h1>
         </div>
         <hr className={styles.hr} />
-        <div>
+        <div className={styles.welcome}>
           <p className={styles.p}>
             Welcome,{" "}
             {currentUser.username ? currentUser.username : session.user.email}
