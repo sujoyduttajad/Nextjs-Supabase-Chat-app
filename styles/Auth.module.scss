@@ -48,10 +48,10 @@
     border: none;
     width: 20rem;
     background-color: $JetBlack;
-    color: $White;
+    color: $Gainsboro;
 
     &::placeholder {
-      color: $Gainsboro;
+      color: $DimGray;
     }
     &:focus {
       outline: 2px solid $PrimaryColor;
