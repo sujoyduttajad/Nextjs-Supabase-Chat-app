@@ -103,7 +103,7 @@
     margin-right: 10px;
     border: 2.5px solid $PrimaryColor;
     background-color: $JetBlack;
-    color: $White;
+    color: $Gainsboro;
     border-radius: 2px;
     padding: 0 10px;
     font-family: MyFont;
@@ -111,18 +111,20 @@
     font-size: 1em;
     outline: none;
     border-radius: 5.97531px;
+    &::placeholder {
+      color: $DimGray;
+    }
   }
-  .messageInput::placeholder {
-    color: $Gainsboro;
-  }
+ 
   .buttonContainer {
       margin: 1em;
       margin-top: 0;
       margin-bottom: 0.2em;
+      p {
+        margin: 0;
+      }
   }
-  .buttonContainer p {
-    margin: 0;
-  }
+
   .submit {
     background-color: $PrimaryColor;
     color: $SecondaryColor;
