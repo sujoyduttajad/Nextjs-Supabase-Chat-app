@@ -1,6 +1,6 @@
 import React from "react";
 import Brand from "../fonts/invert-brand.svg";
-import Vector_8 from '../images/avatar.jpg' 
+import { data } from '../utils/data'
 import styles from "../styles/Sidebar.module.scss";
 import Image from "next/image";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -62,8 +62,9 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 0,
   },
   small: {
-    width: theme.spacing(3),
-    height: theme.spacing(3),
+    // width: theme.spacing(3),
+    // height: theme.spacing(3),
+    objectFit: 'contain'
   },
 }));
 
@@ -152,9 +153,10 @@ const Sidebar = ({
                   className={classes.button}
                 >
                   <Avatar
-                    // className={classes.small}
+                    className={classes.small}
+                    variant="square"
                     alt='New Channel'
-                    src='https://i.ibb.co/hHTzg3T/Vector-images-8.png'
+                    src={data[7].imageUrl}
                   />
                   <p className={styles.channelName}>👋 General</p>
                 </Button>
