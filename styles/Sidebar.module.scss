@@ -79,6 +79,22 @@
     border-radius: 0.5357em;
   }
 }
+.channelWrapper {
+  @include flex(row, space-between, center);
+  padding: 0.1em;
+  padding-left: 0;
+  p {
+    margin: 0;
+    color: $Gainsboro;
+    font-family: MyFont;
+    text-transform: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-left: 0.1em;
+    text-align: center;
+    letter-spacing: 1.2px;
+  }
+}
 .buttonContainer {
     margin: 1em;
     margin-top: 0;
