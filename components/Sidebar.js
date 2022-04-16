@@ -1,10 +1,11 @@
 import React from "react";
 import Brand from "../fonts/invert-brand.svg";
-import styles from "../styles/Chat.module.scss";
+import styles from "../styles/Sidebar.module.scss";
 import Image from "next/image";
 import Badge from "@material-ui/core/Badge";
 import Avatar from "@material-ui/core/Avatar";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
@@ -67,14 +68,6 @@ const Sidebar = ({
         </div>
         <hr className={styles.hr} />
         <div className={styles.welcome}>
-          {/* <CAvatar
-            shape="rounded-10"
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" 
-                className={styles.cavatar} 
-                status="success"
-            >
-                {currentUser.username ? currentUser.username.slice(0,1) : session.user.email.slice(0,1)}
-            </CAvatar>   */}
           <StyledBadge
             overlap="circular"
             anchorOrigin={{
@@ -92,8 +85,25 @@ const Sidebar = ({
             </span>
           </p>
         </div>
+        <div className={styles.centerPanel}>
+          <div className={styles.buttonWrapper}>
+            <Button>
+              <p>All Updates</p>
+            </Button>
+          </div>
+          <div className={styles.buttonWrapper}>
+            <Button>
+              <p>Members</p>
+            </Button>
+          </div>
+          <div className={styles.buttonWrapper}>
+            <Button>
+              <p>Settings</p>
+            </Button>
+          </div>
       </div>
-
+      </div>
+      
       <div className={styles.settings}>
         {editingUsername ? (
           <form className={styles.usernameForm} onSubmit={setUsername}>
