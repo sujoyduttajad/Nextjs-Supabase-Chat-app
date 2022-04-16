@@ -2,10 +2,9 @@ import React from "react";
 import Brand from "../fonts/invert-brand.svg";
 import styles from "../styles/Sidebar.module.scss";
 import Image from "next/image";
-import Badge from "@material-ui/core/Badge";
-import Avatar from "@material-ui/core/Avatar";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
+import { Button, Badge, Avatar } from "@material-ui/core";
+import { AccessAlarm, Settings, ThreeDRotation } from '@material-ui/icons';
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
@@ -88,6 +87,7 @@ const Sidebar = ({
         <div className={styles.centerPanel}>
           <div className={styles.buttonWrapper}>
             <Button>
+              <Settings/>
               <p>All Updates</p>
             </Button>
           </div>
