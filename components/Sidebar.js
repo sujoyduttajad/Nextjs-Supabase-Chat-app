@@ -38,10 +38,11 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
-  buttons: {
+  button: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: 'flex-start',
+    width: '100%',
   },
   settings: {
     color: "#DFDFDF",
@@ -52,16 +53,16 @@ const useStyles = makeStyles((theme) => ({
     background: "transparent",
     color: "#DFDFDF",
     boxShadow: "none",
-    "&:hover": {
-      backgroundColor: "#1c1c1c",
-      borderRadius: "0.5357em",
-    },
+    // "&:hover": {
+    //   backgroundColor: "#1c1c1c",
+    //   borderRadius: "0.5357em",
+    // },
   },
   accordionDetails: {
     display: "flex",
     flexDirection: 'column',
     alignItems: "flex-start",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     padding: 0,
     paddingLeft: '0.7em',
   },
@@ -144,7 +145,7 @@ const Sidebar = ({
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <h4>Channel</h4>
+              <h4>Channels</h4>
             </AccordionSummary>
             <AccordionDetails className={classes.accordionDetails}>
               <div className={styles.channelWrapper}>
