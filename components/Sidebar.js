@@ -42,6 +42,14 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+  buttons: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  settings: {
+    color: '#DFDFDF',
+  }
 }));
 
 const Sidebar = ({
@@ -86,8 +94,10 @@ const Sidebar = ({
         </div>
         <div className={styles.centerPanel}>
           <div className={styles.buttonWrapper}>
-            <Button>
-              <Settings/>
+            <Button 
+              className={classes.button}
+              startIcon={<Settings className={classes.settings} />}
+            >
               <p>All Updates</p>
             </Button>
           </div>
