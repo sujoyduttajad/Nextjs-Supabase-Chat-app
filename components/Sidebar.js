@@ -53,10 +53,6 @@ const useStyles = makeStyles((theme) => ({
     background: "transparent",
     color: "#DFDFDF",
     boxShadow: "none",
-    // "&:hover": {
-    //   backgroundColor: "#1c1c1c",
-    //   borderRadius: "0.5357em",
-    // },
   },
   accordionDetails: {
     display: "flex",
@@ -66,6 +62,9 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     paddingLeft: '0.7em',
   },
+  accSummary: {
+    minHeight: 0
+  }
 }));
 
 const Sidebar = ({
@@ -167,6 +166,48 @@ const Sidebar = ({
                   className={classes.button}
                 >
                   <p className={styles.channelName}>🎯 Skiils</p>
+                </Button>
+              </div>
+            </AccordionDetails>
+          </Accordion>
+        </div>
+        <div className={styles.centerPanel}>
+          <Accordion className={classes.accordion}>
+            <AccordionSummary
+              expandIcon={<ExpandMore className={classes.settings} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+              className={classes.accSummary}
+            >
+              <h4>Members</h4>
+            </AccordionSummary>
+            <AccordionDetails className={classes.accordionDetails}>
+              <div className={styles.channelWrapper}>
+                <Button
+                  className={classes.button}
+                >
+                  <p className={styles.channelName}>Jerry</p>
+                </Button>
+              </div>
+              <div className={styles.channelWrapper}>
+                <Button
+                  className={classes.button}
+                >
+                  <p className={styles.channelName}>George</p>
+                </Button>
+              </div>
+              <div className={styles.channelWrapper}>
+                <Button
+                  className={classes.button}
+                >
+                  <p className={styles.channelName}>Kramer</p>
+                </Button>
+              </div>
+              <div className={styles.channelWrapper}>
+                <Button
+                  className={classes.button}
+                >
+                  <p className={styles.channelName}>Elaine</p>
                 </Button>
               </div>
             </AccordionDetails>
