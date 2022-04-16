@@ -17,6 +17,7 @@
  
   .header {
     @include flex(column, flex-start, flex-start);
+    max-width: 22em;
     width: fit-content;
     height: 100vh;
     padding: 1rem;
