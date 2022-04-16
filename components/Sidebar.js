@@ -1,6 +1,6 @@
 import React from "react";
 import Brand from "../fonts/invert-brand.svg";
-import Vector_8 from '../images/Vector-images-8.png' 
+import Vector_8 from '../images/general.svg' 
 import styles from "../styles/Sidebar.module.scss";
 import Image from "next/image";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
