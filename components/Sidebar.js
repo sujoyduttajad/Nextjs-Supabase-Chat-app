@@ -2,6 +2,47 @@ import React from "react";
 import Brand from "../fonts/invert-brand.svg";
 import styles from "../styles/Chat.module.scss";
 import Image from "next/image";
+import Badge from "@material-ui/core/Badge";
+import Avatar from "@material-ui/core/Avatar";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+
+const StyledBadge = withStyles((theme) => ({
+  badge: {
+    backgroundColor: "#44b700",
+    color: "#44b700",
+    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+    "&::after": {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      borderRadius: "50%",
+      animation: "$ripple 1.2s infinite ease-in-out",
+      border: "1px solid currentColor",
+      content: '""',
+    },
+  },
+  "@keyframes ripple": {
+    "0%": {
+      transform: "scale(.8)",
+      opacity: 1,
+    },
+    "100%": {
+      transform: "scale(2.4)",
+      opacity: 0,
+    },
+  },
+}))(Badge);
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
+}));
 
 const Sidebar = ({
   currentUser,
@@ -11,6 +52,7 @@ const Sidebar = ({
   setEditingUsername,
   signout,
 }) => {
+  const classes = useStyles();
   return (
     <nav className={styles.header}>
       <div className={styles.headerText}>
@@ -25,7 +67,7 @@ const Sidebar = ({
         </div>
         <hr className={styles.hr} />
         <div className={styles.welcome}>
-            {/* <CAvatar
+          {/* <CAvatar
             shape="rounded-10"
                 src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" 
                 className={styles.cavatar} 
@@ -33,9 +75,21 @@ const Sidebar = ({
             >
                 {currentUser.username ? currentUser.username.slice(0,1) : session.user.email.slice(0,1)}
             </CAvatar>   */}
+          <StyledBadge
+            overlap="circular"
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right",
+            }}
+            variant="dot"
+          >
+            <Avatar alt="Remy Sharp" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" />
+          </StyledBadge>
           <p className={styles.p}>
             Welcome,{" "}
-            <span>{currentUser.username ? currentUser.username : session.user.email}</span>
+            <span>
+              {currentUser.username ? currentUser.username : session.user.email}
+            </span>
           </p>
         </div>
       </div>
