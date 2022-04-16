@@ -64,8 +64,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     padding: 0,
     paddingLeft: '0.7em',
-    backgroundColor: "#1c1c1c",
-    borderRadius: "0.5357em",
   },
 }));
 
