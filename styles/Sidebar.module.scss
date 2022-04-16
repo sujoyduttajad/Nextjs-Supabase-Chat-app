@@ -54,10 +54,23 @@
     height: 3em !important;
   }
 .centerPanel {
-
+  margin: 1em 0;
+  width: 100%;
+  p {
+    margin: 0;
+    color: $Gainsboro;
+    font-family: MyFont;
+    text-transform: none;
+    font-weight: 600;
+    font-size: 1.1em;
+  }
 }
 .buttonWrapper {
-
+  &:hover {
+    padding: 0.1em;
+    background-color: $SecondaryColor;
+    border-radius: 0.5357em;
+  }
 }
 .buttonContainer {
     margin: 1em;
