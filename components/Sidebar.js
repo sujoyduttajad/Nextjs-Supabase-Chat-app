@@ -53,6 +53,14 @@ const useStyles = makeStyles((theme) => ({
   },
   accordion: {
     width: '100%',
+    maxWidth: '20em',
+    background: 'transparent',
+    color: '#DFDFDF',
+    boxShadow: 'none',
+    '&:hover': {
+      backgroundColor: '#1c1c1c',
+      borderRadius: '0.5357em'
+    }
   }
 }));
 
@@ -129,18 +137,21 @@ const Sidebar = ({
         <div className={styles.centerPanel}>
           <Accordion className={classes.accordion}>
             <AccordionSummary
-              expandIcon={<ExpandMore />}
+              expandIcon={<ExpandMore className={classes.settings} />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography className={classes.heading}>Accordion 1</Typography>
+              <h4>Channel</h4>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
-              </Typography>
+            <div className={styles.buttonWrapper}>
+            <Button
+              className={classes.button}
+              startIcon={<Settings className={classes.settings} />}
+            >
+              <p>General Chat</p>
+            </Button>
+          </div>
             </AccordionDetails>
           </Accordion>
         </div>
