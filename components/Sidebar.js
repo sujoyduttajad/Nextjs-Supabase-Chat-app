@@ -1,5 +1,6 @@
 import React from "react";
 import Brand from "../fonts/invert-brand.svg";
+import Vector_8 from '../images/Vector-images-8.png' 
 import styles from "../styles/Sidebar.module.scss";
 import Image from "next/image";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -26,21 +27,9 @@ const StyledBadge = withStyles((theme) => ({
       width: "100%",
       height: "100%",
       borderRadius: "50%",
-      // animation: "$ripple 1.2s infinite ease-in-out",
-      // border: "1px solid currentColor",
       content: '""',
     },
   },
-  // "@keyframes ripple": {
-  //   "0%": {
-  //     transform: "scale(.8)",
-  //     opacity: 1,
-  //   },
-  //   "100%": {
-  //     transform: "scale(2.4)",
-  //     opacity: 0,
-  //   },
-  // },
 }))(Badge);
 
 const useStyles = makeStyles((theme) => ({
@@ -166,7 +155,7 @@ const Sidebar = ({
                   <Avatar
                     className={classes.small}
                     alt='New Channel'
-                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                    src={Vector_8}
                   />
                   <p className={styles.channelName}>👋 General</p>
                 </Button>
