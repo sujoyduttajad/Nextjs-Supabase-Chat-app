@@ -4,7 +4,7 @@ import styles from "../styles/Sidebar.module.scss";
 import Image from "next/image";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { Button, Badge, Avatar } from "@material-ui/core";
-import { AccessAlarm, Settings, ThreeDRotation } from '@material-ui/icons';
+import { Person, QueryBuilder, Settings } from "@material-ui/icons";
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
@@ -48,8 +48,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
   },
   settings: {
-    color: '#DFDFDF',
-  }
+    color: "#DFDFDF",
+  },
 }));
 
 const Sidebar = ({
@@ -83,7 +83,10 @@ const Sidebar = ({
             }}
             variant="dot"
           >
-            <Avatar alt="Remy Sharp" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" />
+            <Avatar
+              alt="Remy Sharp"
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+            />
           </StyledBadge>
           <p className={styles.p}>
             Welcome,{" "}
@@ -94,26 +97,32 @@ const Sidebar = ({
         </div>
         <div className={styles.centerPanel}>
           <div className={styles.buttonWrapper}>
-            <Button 
+            <Button
               className={classes.button}
-              startIcon={<Settings className={classes.settings} />}
+              startIcon={<QueryBuilder className={classes.settings} />}
             >
               <p>All Updates</p>
             </Button>
           </div>
           <div className={styles.buttonWrapper}>
-            <Button>
+            <Button
+              className={classes.button}
+              startIcon={<Person className={classes.settings} />}
+            >
               <p>Members</p>
             </Button>
           </div>
           <div className={styles.buttonWrapper}>
-            <Button>
+            <Button
+              className={classes.button}
+              startIcon={<Settings className={classes.settings} />}
+            >
               <p>Settings</p>
             </Button>
           </div>
+        </div>
       </div>
-      </div>
-      
+
       <div className={styles.settings}>
         {editingUsername ? (
           <form className={styles.usernameForm} onSubmit={setUsername}>
