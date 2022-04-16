@@ -64,6 +64,7 @@
 .buttonWrapper {
   @include flex(row, space-between, center);
   padding: 0.1em;
+  padding-left: 0.5em;
   p {
     margin: 0;
     color: $Gainsboro;
