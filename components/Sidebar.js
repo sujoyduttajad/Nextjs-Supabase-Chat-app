@@ -3,8 +3,9 @@ import Brand from "../fonts/invert-brand.svg";
 import styles from "../styles/Sidebar.module.scss";
 import Image from "next/image";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { Button, Badge, Avatar } from "@material-ui/core";
-import { Person, QueryBuilder, Settings } from "@material-ui/icons";
+import { Button, Badge, Avatar, Accordion,
+  AccordionSummary, Typography, AccordionDetails } from "@material-ui/core";
+import { ExpandMore, Person, QueryBuilder, Settings } from "@material-ui/icons";
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
@@ -50,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
   settings: {
     color: "#DFDFDF",
   },
+  accordion: {
+    width: '100%',
+  }
 }));
 
 const Sidebar = ({
@@ -120,6 +124,25 @@ const Sidebar = ({
               <p>Settings</p>
             </Button>
           </div>
+        </div>
+        <hr className={styles.hr} />
+        <div className={styles.centerPanel}>
+          <Accordion className={classes.accordion}>
+            <AccordionSummary
+              expandIcon={<ExpandMore />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography className={classes.heading}>Accordion 1</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                eget.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
         </div>
       </div>
 
