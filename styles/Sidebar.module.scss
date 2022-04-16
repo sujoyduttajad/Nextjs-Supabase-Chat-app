@@ -66,6 +66,7 @@
   }
 }
 .buttonWrapper {
+  @include flex(row, space-between, center);
   &:hover {
     padding: 0.1em;
     background-color: $SecondaryColor;
