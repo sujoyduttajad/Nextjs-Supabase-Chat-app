@@ -3,8 +3,15 @@ import Brand from "../fonts/invert-brand.svg";
 import styles from "../styles/Sidebar.module.scss";
 import Image from "next/image";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { Button, Badge, Avatar, Accordion,
-  AccordionSummary, Typography, AccordionDetails } from "@material-ui/core";
+import {
+  Button,
+  Badge,
+  Avatar,
+  Accordion,
+  AccordionSummary,
+  Typography,
+  AccordionDetails,
+} from "@material-ui/core";
 import { ExpandMore, Person, QueryBuilder, Settings } from "@material-ui/icons";
 
 const StyledBadge = withStyles((theme) => ({
@@ -52,15 +59,19 @@ const useStyles = makeStyles((theme) => ({
     color: "#DFDFDF",
   },
   accordion: {
-    width: '100%',
-    maxWidth: '20em',
-    background: 'transparent',
-    color: '#DFDFDF',
-    boxShadow: 'none',
-    '&:hover': {
-      backgroundColor: '#1c1c1c',
-      borderRadius: '0.5357em'
-    }
+    width: "100%",
+    maxWidth: "20em",
+    background: "transparent",
+    color: "#DFDFDF",
+    boxShadow: "none",
+    "&:hover": {
+      backgroundColor: "#1c1c1c",
+      borderRadius: "0.5357em",
+    },
+  },
+  accordionDetails: {
+    paddingLeft: '0.7em',
+
   }
 }));
 
@@ -143,15 +154,15 @@ const Sidebar = ({
             >
               <h4>Channel</h4>
             </AccordionSummary>
-            <AccordionDetails>
-            <div className={styles.buttonWrapper}>
-            <Button
-              className={classes.button}
-              startIcon={<Settings className={classes.settings} />}
-            >
-              <p>General Chat</p>
-            </Button>
-          </div>
+            <AccordionDetails className={classes.accordionDetails}>
+              <div className={styles.channelWrapper}>
+                <Button
+                  className={classes.button}
+                  startIcon={<Settings className={classes.settings} />}
+                >
+                  <p>General Chat</p>
+                </Button>
+              </div>
             </AccordionDetails>
           </Accordion>
         </div>
