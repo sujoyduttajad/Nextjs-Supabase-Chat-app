@@ -1,6 +1,6 @@
 import React from "react";
 import Brand from "../fonts/invert-brand.svg";
-import Vector_8 from '../images/general.svg' 
+import Vector_8 from '../images/avatar.jpg' 
 import styles from "../styles/Sidebar.module.scss";
 import Image from "next/image";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -10,7 +10,6 @@ import {
   Avatar,
   Accordion,
   AccordionSummary,
-  Typography,
   AccordionDetails,
 } from "@material-ui/core";
 import { ExpandMore, Person, QueryBuilder, Settings } from "@material-ui/icons";
@@ -153,9 +152,9 @@ const Sidebar = ({
                   className={classes.button}
                 >
                   <Avatar
-                    className={classes.small}
+                    // className={classes.small}
                     alt='New Channel'
-                    src={Vector_8}
+                    src='https://i.ibb.co/hHTzg3T/Vector-images-8.png'
                   />
                   <p className={styles.channelName}>👋 General</p>
                 </Button>
