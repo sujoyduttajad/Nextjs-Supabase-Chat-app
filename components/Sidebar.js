@@ -71,8 +71,12 @@ const useStyles = makeStyles((theme) => ({
   },
   accordionDetails: {
     paddingLeft: '0.7em',
-
-  }
+    paddingTop: 0,
+  },
+  small: {
+    width: theme.spacing(3),
+    height: theme.spacing(3),
+  },
 }));
 
 const Sidebar = ({
@@ -107,7 +111,7 @@ const Sidebar = ({
             variant="dot"
           >
             <Avatar
-              alt="Remy Sharp"
+              alt={currentUser.username ? currentUser.username : 'New user'}
               src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
             />
           </StyledBadge>
@@ -158,9 +162,13 @@ const Sidebar = ({
               <div className={styles.channelWrapper}>
                 <Button
                   className={classes.button}
-                  startIcon={<Settings className={classes.settings} />}
                 >
-                  <p>General Chat</p>
+                  <Avatar
+                    className={classes.small}
+                    alt='New Channel'
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                  />
+                  <p className={styles.channelName}>General</p>
                 </Button>
               </div>
             </AccordionDetails>
