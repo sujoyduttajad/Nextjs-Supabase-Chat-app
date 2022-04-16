@@ -58,13 +58,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   accordionDetails: {
+    display: "flex",
+    flexDirection: 'column',
+    alignItems: "flex-start",
+    justifyContent: "center",
+    padding: 0,
     paddingLeft: '0.7em',
-    paddingTop: 0,
-  },
-  small: {
-    // width: theme.spacing(3),
-    // height: theme.spacing(3),
-    objectFit: 'contain'
+    backgroundColor: "#1c1c1c",
+    borderRadius: "0.5357em",
   },
 }));
 
@@ -152,13 +153,21 @@ const Sidebar = ({
                 <Button
                   className={classes.button}
                 >
-                  <Avatar
-                    className={classes.small}
-                    variant="square"
-                    alt='New Channel'
-                    src={data[7].imageUrl}
-                  />
                   <p className={styles.channelName}>👋 General</p>
+                </Button>
+              </div>
+              <div className={styles.channelWrapper}>
+                <Button
+                  className={classes.button}
+                >
+                  <p className={styles.channelName}>🏀 Hangout</p>
+                </Button>
+              </div>
+              <div className={styles.channelWrapper}>
+                <Button
+                  className={classes.button}
+                >
+                  <p className={styles.channelName}>🎯 Skiils</p>
                 </Button>
               </div>
             </AccordionDetails>
