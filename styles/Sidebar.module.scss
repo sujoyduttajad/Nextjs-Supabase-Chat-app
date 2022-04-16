@@ -56,6 +56,10 @@
 .centerPanel {
   margin: 1em 0;
   width: 100%;
+ 
+}
+.buttonWrapper {
+  @include flex(row, space-between, center);
   p {
     margin: 0;
     color: $Gainsboro;
@@ -63,10 +67,9 @@
     text-transform: none;
     font-weight: 600;
     font-size: 1.1em;
+    margin-left: 1em;
+    vertical-align: middle;
   }
-}
-.buttonWrapper {
-  @include flex(row, space-between, center);
   &:hover {
     padding: 0.1em;
     background-color: $SecondaryColor;
