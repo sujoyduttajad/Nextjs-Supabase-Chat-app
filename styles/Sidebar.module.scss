@@ -61,6 +61,7 @@
 }
 .buttonWrapper {
   @include flex(row, space-between, center);
+  padding: 0.1em;
   p {
     margin: 0;
     color: $Gainsboro;
@@ -69,11 +70,9 @@
     font-weight: 600;
     font-size: 1.1em;
     margin-left: 1em;
-    vertical-align: middle;
-    background-color: #3A3A3A;
+    text-align: center;
   }
   &:hover {
-    padding: 0.1em;
     background-color: $SecondaryColor;
     border-radius: 0.5357em;
   }
