@@ -57,7 +57,9 @@
   margin: 1em 0;
   margin-top: 2em;
   width: 100%;
- 
+  h4 {
+    margin: 0;
+  }
 }
 .buttonWrapper {
   @include flex(row, space-between, center);
