@@ -32,7 +32,7 @@ const Auth = ({ supabase }) => {
       {error ? <p className={styles.error}>{error}</p> : null}
 
       {sentEmail ? (
-        <p>We"ve sent you an email to login! Check your email to continue.</p>
+        <p>We have sent you an email to login! Check your email to continue.</p>
       ) : (
         <div className={styles.formContainer}>
           <form onSubmit={signIn}>
