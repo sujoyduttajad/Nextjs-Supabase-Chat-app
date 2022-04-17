@@ -18,6 +18,7 @@ $box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2)
   background-color: transparent;
   border: none;
   -webkit-user-select: none;
+  user-select: none;
 
   .boxWrap {
     width: $box-wrapper-width;
