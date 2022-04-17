@@ -66,7 +66,7 @@ const Chat = ({ currentUser, supabase, session }) => {
         .subscribe();
     };
     await setupUsersSubscription();
-  }, []);
+  });
 
   /* ---- Using supabase API look at the users that we already have. 
   It will consists of objects with a bunch of users ---- */
