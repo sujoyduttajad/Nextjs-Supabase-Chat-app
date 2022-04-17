@@ -76,7 +76,7 @@ const Sidebar = ({
   setEditingUsername,
   signout,
 }) => {
-  
+
   const classes = useStyles();
 
   return (
@@ -131,7 +131,7 @@ const Sidebar = ({
             </Button>
           </div>
           <div className={styles.buttonWrapper}>
-            <Link href="/settings/Profile">
+            <Link href="/settings/Profile" passHref>
               <Button
                 className={classes.button}
                 startIcon={<Settings className={classes.settings} />}
