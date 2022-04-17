@@ -4,7 +4,7 @@ import Image from "next/image";
 import logo from "../images/send-logo.svg";
 import { format, toDate } from "date-fns";
 import Sidebar from "./Sidebar";
-import Loader from "./Loader";
+import Skeleton from "@material-ui/lab/Skeleton";
 
 const Chat = ({ currentUser, supabase, session }) => {
   if (!currentUser) return null;
@@ -128,10 +128,13 @@ const Chat = ({ currentUser, supabase, session }) => {
   const username = (user_id) => {
     const user = users[user_id];
     // Check for user exists or not. A loading component could be created here
-    if (!user) return "";
+    if (!user) {
+      return (
+        <Skeleton variant="text" width={40} height={40} animation="wave" />
+      );
+    }
     return user.username ? user.username : user.id;
   };
-
 
   return (
     <>
