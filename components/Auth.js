@@ -26,7 +26,7 @@ const Auth = ({ supabase }) => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
       <div className={styles.brandName}>
-            <Image className={styles.imageCon} src={Brand} alt="Brand icon" shape-rendering="geometricPrecision" />
+            <Image className={styles.imageCon} src={Brand} alt="Brand icon" shapeRendering="geometricPrecision" />
             <h1 className={styles.title}>Enigma</h1>
           </div>
       {error ? <p className={styles.error}>{error}</p> : null}
