@@ -5,11 +5,20 @@ import logo from "../images/send-logo.svg";
 import { format, toDate } from "date-fns";
 import Sidebar from "./Sidebar";
 import Skeleton from "@material-ui/lab/Skeleton";
+import { makeStyles } from "@material-ui/core/styles";
+import Loader from "./Loader";
+
+const useStyles = makeStyles((theme) => ({
+  skeleton: {
+    backgroundColor: 'rgba(52, 178, 123, 0.2)',
+  }
+}));
 
 const Chat = ({ currentUser, supabase, session }) => {
-  if (!currentUser) return null;
+  if (!currentUser) return <Loader/>;
   // Loading screen will be here
 
+  const classes = useStyles();
   const [messages, setMessages] = useState([]);
   const [editingUsername, setEditingUsername] = useState(false);
   const [users, setUsers] = useState({});
@@ -130,7 +139,7 @@ const Chat = ({ currentUser, supabase, session }) => {
     // Check for user exists or not. A loading component could be created here
     if (!user) {
       return (
-        <Skeleton variant="text" width={40} height={40} animation="wave" />
+        <Skeleton className={classes.skeleton} variant="circle" width={40} height={40} animation="wave" />
       );
     }
     return user.username ? user.username : user.id;
