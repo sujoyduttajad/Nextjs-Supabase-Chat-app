@@ -1,5 +1,5 @@
 import React from "react";
-import Brand from "../fonts/invert-brand.svg";
+import Brand from "../images/invert-brand.svg";
 import { data } from '../utils/data'
 import styles from "../styles/Sidebar.module.scss";
 import Image from "next/image";
