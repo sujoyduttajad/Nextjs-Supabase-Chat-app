@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/Chat.module.scss";
 import Image from "next/image";
-import logo from "../fonts/send-logo.svg";
+import logo from "../images/send-logo.svg";
 import { format, toDate } from "date-fns";
 import Sidebar from "./Sidebar";
 
