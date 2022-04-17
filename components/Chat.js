@@ -4,6 +4,7 @@ import Image from "next/image";
 import logo from "../images/send-logo.svg";
 import { format, toDate } from "date-fns";
 import Sidebar from "./Sidebar";
+import Loader from "./Loader";
 
 const Chat = ({ currentUser, supabase, session }) => {
   if (!currentUser) return null;
@@ -131,8 +132,6 @@ const Chat = ({ currentUser, supabase, session }) => {
     return user.username ? user.username : user.id;
   };
 
-  const date = toDate(Date.parse("2022-03-21T13:12:00+00:00"));
-  console.log(date);
 
   return (
     <>
