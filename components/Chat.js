@@ -116,9 +116,7 @@ const Chat = ({ currentUser, supabase, session }) => {
   };
 
    // Loading screen will be here
-   if (!currentUser) {
-    return <Loader />;
-  }
+ 
   /* ---- Log Out function ---- */
   const signout = (event) => {
     event.preventDefault();
@@ -159,6 +157,11 @@ const Chat = ({ currentUser, supabase, session }) => {
     }
     return user.username ? user.username : user.id;
   };
+
+  
+  if (!currentUser) {
+    return <Loader />;
+  }
 
   return (
     <>
