@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Chat = ({ currentUser, supabase, session }) => {
   const classes = useStyles();
+
   const [messages, setMessages] = useState([]);
   const [editingUsername, setEditingUsername] = useState(false);
   const [users, setUsers] = useState({});
@@ -23,30 +24,15 @@ const Chat = ({ currentUser, supabase, session }) => {
   const messageRef = useRef("");
   const newUsername = useRef("");
 
-  /* ---- Retriving all the message details ---- */
+  /* ---- ** useEffect-#1 ** Retriving all the message details ---- */
   useEffect(async () => {
     const getMessages = async () => {
-      let { data: messages, error } = await supabase
+      const { data: initialMessages, error } = await supabase
         .from("message")
         .select("*");
-      setMessages(messages);
+      setMessages(initialMessages);
     };
     await getMessages();
-
-    // Loading screen will be here
-    if (!currentUser) {
-      return <Loader />;
-    }
-
-    /* ---- Request User Details for a Given User and get their userName & userId ---- */
-    useEffect(async () => {
-      const getUsers = async () => {
-        const userIds = new Set(messages.map((message) => message.user_id));
-        const newUsers = await getUsersFromSupabase(users, userIds);
-        setUsers(newUsers);
-      };
-      await getUsers();
-    }, [messages]);
 
     /* ---- Subscription to changes on ADD/INSERT ---- */
     const setupMessagesSubscription = async () => {
@@ -80,6 +66,11 @@ const Chat = ({ currentUser, supabase, session }) => {
     await setupUsersSubscription();
   });
 
+   // Loading screen will be here
+   if (!currentUser) {
+    return <Loader />;
+  }
+
   /* ---- Using supabase API look at the users that we already have. 
   It will consists of objects with a bunch of users ---- */
   const getUsersFromSupabase = async (users, userIds) => {
@@ -90,7 +81,8 @@ const Chat = ({ currentUser, supabase, session }) => {
       return users;
     }
     // ------ Case 2 ------- //
-    const { data } = await supabase
+    try {
+      const { data } = await supabase
       .from("user")
       .select("id,username")
       .in("id", usersToGet);
@@ -99,17 +91,36 @@ const Chat = ({ currentUser, supabase, session }) => {
     data.forEach((user) => (newUsers[user.id] = user));
 
     return Object.assign({}, users, newUsers);
+    } catch (err) {
+      return users;
+    }
   };
+
+  /* ---- ** useEffect-#2 ** Request User Details for a Given User and get their userName & userId ---- */
+  useEffect(async () => {
+    async function getUsers() {
+      const userIds = new Set(messages.map((message) => message.user_id));
+      const newUsers = await getUsersFromSupabase(users, userIds);
+      setUsers(newUsers);
+    };
+    await getUsers();
+    window.scrollTo(0, document.body.scrollHeight);
+  }, [messages]);
 
   /* ---- Event Handler for message input ---- */
   const handleSendMessage = async (event) => {
     event.preventDefault();
-    const content = messageRef.current.value;
-    await supabase
-      .from("message")
-      .insert([{ content, user_id: session.user.id }]);
-    // reset the message to blank space
-    messageRef.current.value = "";
+    try {
+      const content = messageRef.current.value;
+      await supabase
+        .from("message")
+        .insert([{ content, user_id: session.user.id }]);
+      // reset the message to blank space
+      messageRef.current.value = "";
+    } catch (err) {
+      console.log(err)
+    }
+    
   };
 
   /* ---- Log Out function ---- */
