@@ -25,14 +25,14 @@ const Chat = ({ currentUser, supabase, session }) => {
   const newUsername = useRef("");
 
   /* ---- ** useEffect-#1 ** Retriving all the message details ---- */
-  useEffect(async () => {
+  useEffect(() => {
     const getMessages = async () => {
       const { data: initialMessages, error } = await supabase
         .from("message")
         .select("*");
       setMessages(initialMessages);
     };
-    await getMessages();
+    getMessages();
 
     /* ---- Subscription to changes on ADD/INSERT ---- */
     const setupMessagesSubscription = async () => {
@@ -43,7 +43,7 @@ const Chat = ({ currentUser, supabase, session }) => {
         })
         .subscribe();
     };
-    await setupMessagesSubscription();
+    setupMessagesSubscription();
 
     /* ---- Subscription to changes on UPDATE ---- */
     const setupUsersSubscription = async () => {
@@ -63,7 +63,7 @@ const Chat = ({ currentUser, supabase, session }) => {
         })
         .subscribe();
     };
-    await setupUsersSubscription();
+    setupUsersSubscription();
   });
 
    // Loading screen will be here
@@ -97,13 +97,13 @@ const Chat = ({ currentUser, supabase, session }) => {
   };
 
   /* ---- ** useEffect-#2 ** Request User Details for a Given User and get their userName & userId ---- */
-  useEffect(async () => {
+  useEffect(() => {
     async function getUsers() {
       const userIds = new Set(messages.map((message) => message.user_id));
       const newUsers = await getUsersFromSupabase(users, userIds);
       setUsers(newUsers);
     };
-    await getUsers();
+    getUsers();
     window.scrollTo(0, document.body.scrollHeight);
   }, [messages]);
 
