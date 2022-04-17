@@ -10,14 +10,11 @@ import Loader from "./Loader";
 
 const useStyles = makeStyles((theme) => ({
   skeleton: {
-    backgroundColor: 'rgba(52, 178, 123, 0.2)',
-  }
+    backgroundColor: "rgba(52, 178, 123, 0.2)",
+  },
 }));
 
 const Chat = ({ currentUser, supabase, session }) => {
-  if (!currentUser) return <Loader/>;
-  // Loading screen will be here
-
   const classes = useStyles();
   const [messages, setMessages] = useState([]);
   const [editingUsername, setEditingUsername] = useState(false);
@@ -35,6 +32,21 @@ const Chat = ({ currentUser, supabase, session }) => {
       setMessages(messages);
     };
     await getMessages();
+
+    // Loading screen will be here
+    if (!currentUser) {
+      return <Loader />;
+    }
+
+    /* ---- Request User Details for a Given User and get their userName & userId ---- */
+    useEffect(async () => {
+      const getUsers = async () => {
+        const userIds = new Set(messages.map((message) => message.user_id));
+        const newUsers = await getUsersFromSupabase(users, userIds);
+        setUsers(newUsers);
+      };
+      await getUsers();
+    }, [messages]);
 
     /* ---- Subscription to changes on ADD/INSERT ---- */
     const setupMessagesSubscription = async () => {
@@ -89,16 +101,6 @@ const Chat = ({ currentUser, supabase, session }) => {
     return Object.assign({}, users, newUsers);
   };
 
-  /* ---- Request User Details for a Given User and get their userName & userId ---- */
-  useEffect(async () => {
-    const getUsers = async () => {
-      const userIds = new Set(messages.map((message) => message.user_id));
-      const newUsers = await getUsersFromSupabase(users, userIds);
-      setUsers(newUsers);
-    };
-    await getUsers();
-  }, [messages]);
-
   /* ---- Event Handler for message input ---- */
   const handleSendMessage = async (event) => {
     event.preventDefault();
@@ -139,7 +141,13 @@ const Chat = ({ currentUser, supabase, session }) => {
     // Check for user exists or not. A loading component could be created here
     if (!user) {
       return (
-        <Skeleton className={classes.skeleton} variant="circle" width={40} height={40} animation="wave" />
+        <Skeleton
+          className={classes.skeleton}
+          variant="circle"
+          width={40}
+          height={40}
+          animation="wave"
+        />
       );
     }
     return user.username ? user.username : user.id;
