@@ -24,16 +24,7 @@ const Chat = ({ currentUser, supabase, session }) => {
 
   const classes = useStyles();
 
-  /* ---- ** useEffect-#2 ** Request User Details for a Given User and get their userName & userId ---- */
-  useEffect(() => {
-    async function getUsers() {
-      const userIds = new Set(messages.map((message) => message.user_id));
-      const newUsers = await getUsersFromSupabase(users, userIds);
-      setUsers(newUsers);
-    }
-    getUsers();
-    window.scrollTo(0, document.body.scrollHeight);
-  }, [messages]);
+
   /* ---- ** useEffect-#1 ** Retriving all the message details ---- */
   useEffect(() => {
     const getMessages = async () => {
@@ -99,7 +90,16 @@ const Chat = ({ currentUser, supabase, session }) => {
         return users;
     }
   };
-
+  /* ---- ** useEffect-#2 ** Request User Details for a Given User and get their userName & userId ---- */
+  useEffect(() => {
+    async function getUsers() {
+      const userIds = new Set(messages.map((message) => message.user_id));
+      const newUsers = await getUsersFromSupabase(users, userIds);
+      setUsers(newUsers);
+    }
+    getUsers();
+    window.scrollTo(0, document.body.scrollHeight);
+  }, [messages]);
   /* ---- Event Handler for message input ---- */
   const handleSendMessage = async (event) => {
     event.preventDefault();
@@ -158,7 +158,7 @@ const Chat = ({ currentUser, supabase, session }) => {
     return user.username ? user.username : user.id;
   };
 
-  
+
   if (!currentUser) {
     return <Loader />;
   }
