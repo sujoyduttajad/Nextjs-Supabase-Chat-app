@@ -99,7 +99,6 @@ const Chat = ({ currentUser, supabase, session }) => {
     }
     getUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    window.scrollTo(0, document.body.scrollHeight);
   }, [messages]);
   /* ---- Event Handler for message input ---- */
   const handleSendMessage = async (event) => {
