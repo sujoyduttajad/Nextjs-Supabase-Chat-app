@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Loader = () => {
   return (
-    <div>
+    <div className={styles.body}>
       <div class="loader">
         <svg viewBox="0 0 80 80">
           <circle id="test" cx="40" cy="40" r="32"></circle>
