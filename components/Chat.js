@@ -15,8 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Chat = ({ currentUser, supabase, session }) => {
-  const classes = useStyles();
-
+  
   const [messages, setMessages] = useState([]);
   const [editingUsername, setEditingUsername] = useState(false);
   const [users, setUsers] = useState({});
@@ -24,6 +23,8 @@ const Chat = ({ currentUser, supabase, session }) => {
   const messageRef = useRef("");
   const newUsername = useRef("");
 
+  const classes = useStyles();
+  
   /* ---- ** useEffect-#1 ** Retriving all the message details ---- */
   useEffect(() => {
     const getMessages = async () => {
