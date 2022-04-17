@@ -72,21 +72,21 @@ const Chat = ({ currentUser, supabase, session }) => {
   const getUsersFromSupabase = async (users, userIds) => {
     const usersToGet = Array.from(userIds).filter((userId) => !users[userId]);
     // ------ Case 1 ------- //
-    if (Object.keys(users).length && usersToGet.length === 0) {
+    if (Object.keys(users).length && !usersToGet.length ) {
       return users;
     }
     // ------ Case 2 ------- //
     try {
       const { data } = await supabase
         .from("user")
-        .select("id,username")
+        .select("id, username")
         .in("id", usersToGet);
 
       const newUsers = {};
       data.forEach((user) => (newUsers[user.id] = user));
-
       return Object.assign({}, users, newUsers);
     } catch (err) {
+      console.log(err)
         return users;
     }
   };
@@ -188,7 +188,6 @@ const Chat = ({ currentUser, supabase, session }) => {
           })
           .map((message) => (
             <>
-              {console.log(message.created_at)}
               <div className={styles.textDetail}>
                 <div className={styles.user}>{username(message.user_id)}</div>
                 <div className={styles.timeStamp}>
