@@ -76,11 +76,6 @@ const Chat = ({ currentUser, supabase, session }) => {
     setupUsersSubscription();
   });
 
-  // Loading screen will be here
-  if (!currentUser) {
-    return <Loader />;
-  }
-
   /* ---- Using supabase API look at the users that we already have. 
   It will consists of objects with a bunch of users ---- */
   const getUsersFromSupabase = async (users, userIds) => {
@@ -121,6 +116,10 @@ const Chat = ({ currentUser, supabase, session }) => {
     }
   };
 
+   // Loading screen will be here
+   if (!currentUser) {
+    return <Loader />;
+  }
   /* ---- Log Out function ---- */
   const signout = (event) => {
     event.preventDefault();
