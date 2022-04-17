@@ -19,7 +19,7 @@ export default function Home({ currentUser, session, supabase }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Supabase Chat App</title>
+        <title>Enigma</title>
       </Head>
 
       <main className={styles.main}>
