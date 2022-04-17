@@ -1,6 +1,7 @@
 import React from "react";
 import Brand from "../images/invert-brand.svg";
 import { data } from '../utils/data'
+import Link from 'next/link'
 import styles from "../styles/Sidebar.module.scss";
 import Image from "next/image";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -128,12 +129,14 @@ const Sidebar = ({
             </Button>
           </div>
           <div className={styles.buttonWrapper}>
-            <Button
-              className={classes.button}
-              startIcon={<Settings className={classes.settings} />}
-            >
-              <p>Settings</p>
-            </Button>
+            <Link href="/settings/Profile">
+              <Button
+                className={classes.button}
+                startIcon={<Settings className={classes.settings} />}
+              >
+                <p>Settings</p>
+              </Button>
+            </Link>
           </div>
         </div>
         <hr className={styles.hr} />
