@@ -20,7 +20,7 @@
         background: var(--dot);
         top: 60px;
         left: 30px;
-        transform: translate(-40px, -18px);
+        transform: translate(-60px, -18px);
         animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
     }
     svg, .imageCon {
@@ -36,9 +36,7 @@
             stroke-width: 60px;
             stroke-linejoin: round;
             stroke-linecap: round;
-        }
-        circle {
-            stroke-dasharray: calc(100/(4*3)) calc(200/4) calc(200/(4*3)) calc(200/4);
+            stroke-dasharray: calc(200/(4*3)) calc(200/4*3) calc(200/(4*3)) calc(200/4*3);
             stroke-dashoffset: 75;
             animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
         }
