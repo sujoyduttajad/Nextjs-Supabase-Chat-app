@@ -6,8 +6,7 @@ $box-wrapper-height: $b-size;
 $box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2)
   calc((100% - #{$box-wrapper-width}) / 2);
 
-//clip-path: inset() doesn't work on firefox and IE, if anyone feels like making it work with SVG clipping, please drop me a link in comments, would like to see it. :)
-
+  
 .wrapper {
   position: absolute;
   left: 50%;
