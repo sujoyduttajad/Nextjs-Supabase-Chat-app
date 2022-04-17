@@ -98,7 +98,7 @@ const Chat = ({ currentUser, supabase, session }) => {
       setUsers(newUsers);
     }
     getUsers();
-    window.scrollTo(0, document.body.scrollHeight);
+    // window.scrollTo(0, document.body.scrollHeight);
   }, [messages]);
   /* ---- Event Handler for message input ---- */
   const handleSendMessage = async (event) => {
