@@ -80,7 +80,6 @@ const Chat = ({ currentUser, supabase, session }) => {
   It will consists of objects with a bunch of users ---- */
   const getUsersFromSupabase = async (users, userIds) => {
     const usersToGet = Array.from(userIds).filter((userId) => !users[userId]);
-
     // ------ Case 1 ------- //
     if (Object.keys(users).length && usersToGet.length === 0) {
       return users;
@@ -97,7 +96,7 @@ const Chat = ({ currentUser, supabase, session }) => {
 
       return Object.assign({}, users, newUsers);
     } catch (err) {
-      return users;
+        return users;
     }
   };
 
