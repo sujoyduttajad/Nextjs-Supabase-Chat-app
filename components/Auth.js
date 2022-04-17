@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react'
-import styles from '../styles/Auth.module.scss'
-import Brand from '../images/invert-brand.svg'
-import Image from 'next/image'
+import React, { useRef, useState } from "react"
+import styles from "../styles/Auth.module.scss"
+import Brand from "../images/invert-brand.svg"
+import Image from "next/image"
 
 const Auth = ({ supabase }) => {
   const [error, setError] = useState("");
@@ -32,7 +32,7 @@ const Auth = ({ supabase }) => {
       {error ? <p className={styles.error}>{error}</p> : null}
 
       {sentEmail ? (
-        <p>We've sent you an email to login! Check your email to continue.</p>
+        <p>We"ve sent you an email to login! Check your email to continue.</p>
       ) : (
         <div className={styles.formContainer}>
           <form onSubmit={signIn}>
