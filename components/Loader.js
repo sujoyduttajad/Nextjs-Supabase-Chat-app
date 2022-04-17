@@ -5,17 +5,15 @@ import Image from "next/image";
 
 const Loader = () => {
   return (
-    <div className={styles.body}>
-      <div className={styles.loader}>
-        <div className={styles.loader}>
-          <div className={styles.loader}>
-            <Image
-              className={styles.imageCon}
-              src={Brand}
-              alt="Brand icon"
-              shape-rendering="geometricPrecision"
-            />
-          </div>
+    <div >
+      <div className={styles.wrapper}>
+        <div className={styles.boxWrap}>
+          <div className={styles.boxOne}></div>
+          <div className={styles.boxTwo}></div>
+          <div className={styles.boxThree}></div>
+          <div className={styles.boxFour}></div>
+          <div className={styles.boxFive}></div>
+          <div className={styles.boxSix}></div>
         </div>
       </div>
     </div>
