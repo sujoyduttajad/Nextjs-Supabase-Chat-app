@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Chat = ({ currentUser, supabase, session }) => {
-  
   const [messages, setMessages] = useState([]);
   const [editingUsername, setEditingUsername] = useState(false);
   const [users, setUsers] = useState({});
@@ -24,7 +23,17 @@ const Chat = ({ currentUser, supabase, session }) => {
   const newUsername = useRef("");
 
   const classes = useStyles();
-  
+
+  /* ---- ** useEffect-#2 ** Request User Details for a Given User and get their userName & userId ---- */
+  useEffect(() => {
+    async function getUsers() {
+      const userIds = new Set(messages.map((message) => message.user_id));
+      const newUsers = await getUsersFromSupabase(users, userIds);
+      setUsers(newUsers);
+    }
+    getUsers();
+    window.scrollTo(0, document.body.scrollHeight);
+  }, [messages]);
   /* ---- ** useEffect-#1 ** Retriving all the message details ---- */
   useEffect(() => {
     const getMessages = async () => {
@@ -67,8 +76,8 @@ const Chat = ({ currentUser, supabase, session }) => {
     setupUsersSubscription();
   });
 
-   // Loading screen will be here
-   if (!currentUser) {
+  // Loading screen will be here
+  if (!currentUser) {
     return <Loader />;
   }
 
@@ -84,29 +93,18 @@ const Chat = ({ currentUser, supabase, session }) => {
     // ------ Case 2 ------- //
     try {
       const { data } = await supabase
-      .from("user")
-      .select("id,username")
-      .in("id", usersToGet);
+        .from("user")
+        .select("id,username")
+        .in("id", usersToGet);
 
-    const newUsers = {};
-    data.forEach((user) => (newUsers[user.id] = user));
+      const newUsers = {};
+      data.forEach((user) => (newUsers[user.id] = user));
 
-    return Object.assign({}, users, newUsers);
+      return Object.assign({}, users, newUsers);
     } catch (err) {
       return users;
     }
   };
-
-  /* ---- ** useEffect-#2 ** Request User Details for a Given User and get their userName & userId ---- */
-  useEffect(() => {
-    async function getUsers() {
-      const userIds = new Set(messages.map((message) => message.user_id));
-      const newUsers = await getUsersFromSupabase(users, userIds);
-      setUsers(newUsers);
-    };
-    getUsers();
-    window.scrollTo(0, document.body.scrollHeight);
-  }, [messages]);
 
   /* ---- Event Handler for message input ---- */
   const handleSendMessage = async (event) => {
@@ -119,9 +117,8 @@ const Chat = ({ currentUser, supabase, session }) => {
       // reset the message to blank space
       messageRef.current.value = "";
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-    
   };
 
   /* ---- Log Out function ---- */
