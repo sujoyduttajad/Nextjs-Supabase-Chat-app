@@ -76,7 +76,9 @@ const Sidebar = ({
   setEditingUsername,
   signout,
 }) => {
+  
   const classes = useStyles();
+
   return (
     <nav className={styles.header}>
       <div className={styles.headerText}>
