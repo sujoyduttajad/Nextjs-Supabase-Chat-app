@@ -87,7 +87,7 @@ const Sidebar = ({
             className={styles.imageCon}
             src={Brand}
             alt="Brand icon"
-            shape-rendering="geometricPrecision"
+            shapeRendering="geometricPrecision"
           />
           <h1 className={styles.h1}>Enigma</h1>
         </div>
