@@ -115,20 +115,24 @@ const Sidebar = ({
         </div>
         <div className={styles.centerPanel}>
           <div className={styles.buttonWrapper}>
+          <Link href="/updates" passHref>
             <Button
               className={classes.button}
               startIcon={<QueryBuilder className={classes.settings} />}
             >
               <p>All Updates</p>
             </Button>
+            </Link>
           </div>
           <div className={styles.buttonWrapper}>
+          <Link href="/Members" passHref>
             <Button
               className={classes.button}
               startIcon={<Person className={classes.settings} />}
             >
               <p>Members</p>
             </Button>
+            </Link>
           </div>
           <div className={styles.buttonWrapper}>
             <Link href="/settings/Profile" passHref>
