@@ -1,28 +1,28 @@
-$w-size: 200px;
-$w-margin: -$w-size/2;
-$b-size: 70%; //This is % based on $w-size. Use any value you want (that makes sense) and any unit that you would like (test it)
-$box-wrapper-width: $b-size;
-$box-wrapper-height: $b-size;
-$box-wrapper-margin: calc((100% - #{$box-wrapper-height}) / 2)
-  calc((100% - #{$box-wrapper-width}) / 2);
+$wSize: 200px;
+$wMargin: -$wSize/2;
+$bsize: 70%; //This is % based on $wSize. Use any value you want (that makes sense) and any unit that you would like (test it)
+$boxWrapperWidth: $bSize;
+$boxWrapperHeight: $bSize;
+$boxWrapperMargin: calc((100% - #{$boxWrapperHeight}) / 2)
+  calc((100% - #{$boxWrapperWidth}) / 2);
 
   
 .wrapper {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin: $w-margin;
-  width: $w-size;
-  height: $w-size;
+  margin: $wMargin;
+  width: $wSize;
+  height: $wSize;
   background-color: transparent;
   border: none;
   -webkit-user-select: none;
   user-select: none;
 
   .boxWrap {
-    width: $box-wrapper-width;
-    height: $box-wrapper-height;
-    margin: $box-wrapper-margin;
+    width: $boxWrapperWidth;
+    height: $boxWrapperHeight;
+    margin: $boxWrapperMargin;
     position: relative;
     transform: rotate(-45deg);
 
