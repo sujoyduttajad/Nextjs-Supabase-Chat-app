@@ -143,7 +143,7 @@ const Sidebar = ({
         </div>
         <hr className={styles.hr} />
         <div className={styles.centerPanel}>
-          <Accordion className={classes.accordion}>
+          <Accordion className={classes.accordion} defaultExpanded={true}>
             <AccordionSummary
               expandIcon={<ExpandMore className={classes.settings} />}
               aria-controls="panel1a-content"
@@ -177,7 +177,7 @@ const Sidebar = ({
           </Accordion>
         </div>
         <div className={styles.centerPanel}>
-          <Accordion className={classes.accordion}>
+          <Accordion className={classes.accordion} defaultExpanded={true} >
             <AccordionSummary
               expandIcon={<ExpandMore className={classes.settings} />}
               aria-controls="panel1a-content"
