@@ -148,7 +148,7 @@ const Chat = ({ currentUser, supabase, session }) => {
       return (
         <Skeleton
           className={classes.skeleton}
-          variant="circle"
+          // variant="circle"
           width={40}
           height={40}
           animation="wave"
