@@ -1,6 +1,6 @@
 $wSize: 200px;
 $wMargin: -$wSize/2;
-$bsize: 70%; //This is % based on $wSize. Use any value you want (that makes sense) and any unit that you would like (test it)
+$bSize: 70%; //This is % based on $wSize. Use any value you want (that makes sense) and any unit that you would like (test it)
 $boxWrapperWidth: $bSize;
 $boxWrapperHeight: $bSize;
 $boxWrapperMargin: calc((100% - #{$boxWrapperHeight}) / 2)
