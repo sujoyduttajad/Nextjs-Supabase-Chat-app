@@ -125,7 +125,7 @@ const Sidebar = ({
             </Link>
           </div>
           <div className={styles.buttonWrapper}>
-          <Link href="/Members" passHref>
+          <Link href="/members" passHref>
             <Button
               className={classes.button}
               startIcon={<Person className={classes.settings} />}
@@ -135,7 +135,7 @@ const Sidebar = ({
             </Link>
           </div>
           <div className={styles.buttonWrapper}>
-            <Link href="/settings/Profile" passHref>
+            <Link href="/settings/profile" passHref>
               <Button
                 className={classes.button}
                 startIcon={<Settings className={classes.settings} />}
