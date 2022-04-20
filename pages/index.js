@@ -2,9 +2,9 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
 import { useEffect, useState } from 'react'
 import Auth from '../components/Auth';
-import Chat from '../components/Chat';
+import Home from './home';
 
-export default function Home({ currentUser, session, supabase }) {
+export default function Index({ currentUser, session, supabase }) {
 
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -24,7 +24,7 @@ export default function Home({ currentUser, session, supabase }) {
 
       <main className={styles.main}>
         {
-          loggedIn ?  <Chat session={session} currentUser={currentUser} supabase={supabase} /> : <Auth supabase={supabase} />
+          loggedIn ?  <Home session={session} currentUser={currentUser} supabase={supabase} /> : <Auth supabase={supabase} />
         }
         
       </main>
