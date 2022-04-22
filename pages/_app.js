@@ -7,6 +7,7 @@ function MyApp({ Component, pageProps }) {
   const { currentUser, session, supabase } = useSupabase();
 
   // Remove the server-side injected CSS.
+  console.log(currentUser)
   React.useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
