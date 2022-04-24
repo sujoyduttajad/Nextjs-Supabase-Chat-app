@@ -16,7 +16,7 @@ export default function Index({ currentUser, session, supabase }) {
     setLoggedIn(!!session);
   }, [session]);
 
-  console.log("Session: "+session, "LoggedIn: "+loggedIn)
+  console.log("Session: " + session, "LoggedIn: " + loggedIn);
   return (
     <div className={styles.container}>
       <Head>
@@ -24,8 +24,8 @@ export default function Index({ currentUser, session, supabase }) {
       </Head>
 
       <main className={styles.main}>
-        {!loggedIn ? (
-          <Register
+        {loggedIn ? (
+          <Home
             session={session}
             currentUser={currentUser}
             supabase={supabase}
@@ -33,11 +33,8 @@ export default function Index({ currentUser, session, supabase }) {
         ) : (
           <Auth supabase={supabase} />
         )}
-        <Home 
-              session={session} 
-              currentUser={currentUser} 
-              supabase={supabase} 
-            /> 
+
+       
       </main>
     </div>
   );
