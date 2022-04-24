@@ -8,11 +8,13 @@ const Auth = ({ supabase }) => {
   const [error, setError] = useState("");
   const [sentEmail, setSentEmail] = useState(false);
 
+  console.log(supabase)
   const emailRef = useRef(null);
   const signIn = async (evt) => {
     evt.preventDefault();
-    const email = emailRef.current.value;
-    const { error } = await supabase.auth.signIn({ email });
+    const emailUser = emailRef.current.value;
+    const { error } = await supabase.auth.signUp({ 
+      email: emailUser });
     error ? setError(error.message) : setSentEmail(true);
   };
 
