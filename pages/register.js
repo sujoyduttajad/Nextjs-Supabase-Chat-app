@@ -8,9 +8,8 @@ import { SupabaseContext } from "../context/supabaseContext";
 const Register = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const [{currentUser, session, supabase}] = useContext(SupabaseContext);
+//   const [{ supabase}] = useContext(SupabaseContext);
 
-  console.log(currentUser);
 
   const signUp = async (evt) => {
     evt.preventDefault();
