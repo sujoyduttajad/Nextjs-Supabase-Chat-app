@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import "../styles/globals.scss";
-import { SupabaseContext, SupabaseProvider } from "../context/supabaseContext";
+import { SupabaseProvider } from "../context/supabaseContext";
 import useSupabase from "../utils/useSupabase";
 
 function MyApp({ Component, pageProps }) {
