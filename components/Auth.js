@@ -23,11 +23,6 @@ const Auth = ({ supabase }) => {
     });
   };
 
-  // const { user, session, error } = await supabase.auth.signUp({
-  //   email: 'example@email.com',
-  //   password: 'example-password',
-  // })
-
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
