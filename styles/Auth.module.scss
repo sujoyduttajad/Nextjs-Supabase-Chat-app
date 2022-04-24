@@ -38,7 +38,16 @@
 
   .formContainer {
     padding: 1em;
-    
+    .form {
+      @include flex(column, center, center);
+      .input {
+        margin: 0.5em 0;
+      }
+      .submit {
+        width: 100%;
+        margin: 0.7em 0;
+      }
+    }
   }
   .input {
     padding: 10px;
