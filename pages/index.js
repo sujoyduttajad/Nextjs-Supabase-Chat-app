@@ -1,20 +1,20 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.scss'
-import { useEffect, useState } from 'react'
-import Auth from '../components/Auth';
-import Home from './home';
+import Head from "next/head";
+import styles from "../styles/Home.module.scss";
+import { useEffect, useState } from "react";
+import Auth from "./auth";
+import Home from "./home";
+import Register from "./register";
 
 export default function Index({ currentUser, session, supabase }) {
-
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Since session here could be an object containing a lot of different information 
+    // Since session here could be an object containing a lot of different information
     // We just needs to prefix this by double explanation point which coerces a variable or value into a
-    // boolean. So if this is an object the !! whill check if the value is truthy that means it has some 
-    // sort of data inside of it and that will turn this into either true or false 
-      setLoggedIn(!!session) 
-  }, [session]) 
+    // boolean. So if this is an object the !! whill check if the value is truthy that means it has some
+    // sort of data inside of it and that will turn this into either true or false
+    setLoggedIn(!!session);
+  }, [session]);
 
   return (
     <div className={styles.container}>
@@ -23,11 +23,21 @@ export default function Index({ currentUser, session, supabase }) {
       </Head>
 
       <main className={styles.main}>
-        {
-          loggedIn ?  <Home session={session} currentUser={currentUser} supabase={supabase} /> : <Auth supabase={supabase} />
-        }
-        
+        {!loggedIn ? (
+          <Register
+            session={session}
+            currentUser={currentUser}
+            supabase={supabase}
+          />
+        ) : (
+          <Auth supabase={supabase} />
+        )}
+        {/* <Home 
+              session={session} 
+              currentUser={currentUser} 
+              supabase={supabase} 
+            />  */}
       </main>
     </div>
-  )
+  );
 }
