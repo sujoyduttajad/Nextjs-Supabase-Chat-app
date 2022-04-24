@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useContext } from "react";
 import styles from "../styles/Auth.module.scss";
 import Brand from "../images/invert-brand.svg";
 import Image from "next/image";
@@ -8,9 +8,9 @@ import { SupabaseContext } from "../context/supabaseContext";
 const Register = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-//   const [{currentUser, session, supabase}] = useContext(SupabaseContext);
+  const [{currentUser, session, supabase}] = useContext(SupabaseContext);
 
-//   console.log(currentUser);
+  console.log(currentUser);
 
   const signUp = async (evt) => {
     evt.preventDefault();
