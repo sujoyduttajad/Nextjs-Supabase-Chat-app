@@ -101,3 +101,14 @@
     }
   }
   
+  .register {
+    p {
+      span {
+        text-decoration: underline;
+        color: $PrimaryColor;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+    }
+  
+  }
