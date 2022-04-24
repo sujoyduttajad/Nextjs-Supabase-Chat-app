@@ -64,11 +64,11 @@ const Auth = ({ supabase }) => {
             <button className={styles.github} onClick={signInWithGithub}>
               <p>Sign in with GitHub </p>
             </button>
-            <div>
+            <div className={styles.register}>
               <p>
-                Don't have an account?
+                Don't have an account? 
                 <Link href="/register" passHref>
-                  <span> Click here </span>
+                  <span>Click here</span>
                 </Link>
                 to create one
               </p>
