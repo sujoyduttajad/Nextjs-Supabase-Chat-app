@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import "../styles/globals.scss";
+import { SupabaseContext, SupabaseProvider } from "../context/supabaseContext";
 import useSupabase from "../utils/useSupabase";
 
 function MyApp({ Component, pageProps }) {
   const { currentUser, session, supabase } = useSupabase();
+  
 
   // Remove the server-side injected CSS.
   console.log(currentUser);
@@ -17,12 +19,14 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <React.Fragment>
-      <Component
-        currentUser={currentUser}
-        session={session}
-        supabase={supabase}
-        {...pageProps}
-      />
+      <SupabaseProvider>
+        <Component
+          currentUser={currentUser}
+          session={session}
+          supabase={supabase}
+          {...pageProps}
+        />
+      </SupabaseProvider>
     </React.Fragment>
   );
 }
