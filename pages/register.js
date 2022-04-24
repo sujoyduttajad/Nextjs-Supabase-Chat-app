@@ -8,9 +8,9 @@ import { SupabaseContext } from "../context/supabaseContext";
 const Register = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const [currentUser, session, supabase] = useContext(SupabaseContext);
+//   const [{currentUser, session, supabase}] = useContext(SupabaseContext);
 
-  console.log(supabase);
+//   console.log(currentUser);
 
   const signUp = async (evt) => {
     evt.preventDefault();
@@ -54,6 +54,15 @@ const Register = () => {
               Register
             </button>
           </form>
+          <div className={styles.register}>
+              <p>
+                Already have an account?
+                <Link href="/auth" passHref>
+                  <span>Click here</span>
+                </Link>
+                to signin
+              </p>
+            </div>
         </div>
       </div>
     </div>
