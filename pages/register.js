@@ -3,18 +3,22 @@ import styles from "../styles/Auth.module.scss";
 import Brand from "../images/invert-brand.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { SupabaseContext } from "../context/supabaseContext";
 
 const Register = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const [currentUser, session, supabase] = useContext(SupabaseContext);
+
+  console.log(supabase);
 
   const signUp = async (evt) => {
     evt.preventDefault();
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
+    const userEmail = emailRef.current.value;
+    const userPassword = passwordRef.current.value;
     const { user, session, error } = await supabase.auth.signUp({
-      email,
-      password,
+      email: userEmail,
+      password: userPassword,
     });
   };
 
